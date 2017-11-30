@@ -30,6 +30,40 @@ h1 {
   padding: 20px;
 }
 
+.text-box-intro {
+  // padding: em(50) 0;
+  margin: em(20) auto;
+  text-align: left;
+  width: 80%;
+  max-width: em(400);
+  
+  .text-box-intro-copy {
+    padding: em(30);
+  }
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    margin: auto;
+    padding: em(10) 0;
+    width: 100%;
+    border-top: 1px solid #888;    
+  }
+  &:after {
+    border-top: 0;
+    border-bottom: 1px solid #888;    
+  }
+}
+
+.main-photo-box {
+
+  img {
+    max-width: em(300);
+  }
+}
+
+
+
 // h6 {
 //   font-size: 110%;
 //   margin-bottom: 10px;

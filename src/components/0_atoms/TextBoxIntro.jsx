@@ -3,7 +3,7 @@ import React from 'react'
 
 class TextBoxIntro extends React.Component {
     render () {
-        return <div className="text-box-intro">{this.props.children}</div>
+        return <div className="text-box-intro"><div className="text-box-intro-copy">{this.props.children}</div></div>
     }
 }
 

@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class HeaderTrip extends React.Component {
+
     render () {
-        return <div className="header-trip"><h2 className="header-text">{this.props.trip}</h2></div>
+        const linkAddress = '/trip/' + this.props.trip.toLowerCase().replace(/ /g, '-')
+        
+        return <div className="header-trip"><Link to={linkAddress}><h2 className="header-text">{this.props.trip}</h2></Link></div>
     }
 }
 

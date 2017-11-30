@@ -14,7 +14,13 @@ const ExampleDomainService = {
      * @returns {*}
      */
     getTrips () {
-        return DataAccessService.get('/api/trips')
+        return DataAccessService.get('//127.0.0.1:5000/api/trips')
+    },
+    getTripOne (id) {
+        return DataAccessService.get('//127.0.0.1:5000/api/tripone/' + id)
+    },
+    getState (state) {
+        return DataAccessService.get('//127.0.0.1:5000/api/state/' + state)
     },
     getFakePromise (doReject) {
         // doReject as true will throw an error

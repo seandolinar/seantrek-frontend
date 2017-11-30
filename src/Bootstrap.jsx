@@ -17,7 +17,7 @@ ReactDOM.render(
         <Root store={store} />
     </AppContainer>,
     document.getElementById('example-app')
-);
+)
 
 // Hot Module Replacement API
 if (module.hot) {

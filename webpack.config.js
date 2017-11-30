@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const path = require('path')
 const webpack = require('webpack')
@@ -13,7 +13,8 @@ const appConfig = require('./config/config')
 const config = {
     output: {
         path    : path.join(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json']

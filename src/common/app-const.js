@@ -4,7 +4,9 @@ export const ENTITY_KEY = {
     FOO: 'foo',
     BAR: 'bar',
     BAZ: 'baz',
-    TRIPS: 'trips'
+    TRIPS: 'trips',
+    TRIPONE: 'trip_one'
+    
 }
 
 export const INITIAL_STATE = {
@@ -12,7 +14,8 @@ export const INITIAL_STATE = {
         [ENTITY_KEY.FOO]: {},
         // [ENTITY_KEY.BAR]: {},
         // [ENTITY_KEY.BAZ]: {},
-        [ENTITY_KEY.TRIPS]: {}
+        [ENTITY_KEY.TRIPS]: {},
+        [ENTITY_KEY.TRIPONE]: {}
 
     },
     counter: 0
