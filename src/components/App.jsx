@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './0_atoms/Header'
 
+import TextBoxIntro from './0_atoms/TextBoxIntro'
+
 import PageMain from './4_pages/PageMain'
 import PageTrip from './4_pages/PageTrip'
 import PageState from './4_pages/PageState'
@@ -17,28 +19,71 @@ import { Link, Route, Switch } from 'react-router-dom'
 class App extends React.Component {
     constructor (props) {
         super(props)
-        this.state = {bottom: 500}
+
+        const windowWidth = 2000 // window.innerWidth
+        const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
+
+        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust}
         this.handleClick = this.handleClick.bind(this)
         this.handleWheel = this.handleWheel.bind(this)
+        this.handleScroll = this.handleScroll.bind(this)
+        this.handleResize = this.handleResize.bind(this)
+    }
+
+    componentWillMount () {
+        const throttleScroll = this.handleScroll
+        window.addEventListener('scroll', throttleScroll)
+        window.addEventListener('resize', this.handleResize)
+    }
+
+    handleResize () {
+        const windowWidth = 2000 // window.innerWidth
+        const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
+        this.setState({windowLeftAdjust})
+    }
+
+    handleScroll () {
+        window.requestAnimationFrame(() => {
+            let scrollNew = window.scrollY / 2
+            let transform = 'translate3d(0,' + scrollNew + 'px,0)'
+            this.setState({ transform, transformValue: window.scrollY })
+        })
     }
 
     handleClick () {
     }
 
     handleWheel (e) {
-        let bottom = Math.max(Math.min(this.state.bottom - ((e.nativeEvent.deltaY) / 2), 500),0)
-        this.setState({ bottom })
+
     }
 
     render () {
+
+
         return (
-            <div className="seantrek-app-main" onWheel={this.handleWheel}>
-                <Header/>
+            <div className="seantrek-app-main" onScroll={this.handleWheel}>
+                {/* <Header/> */}
                 <Switch>
                     <Route exact path="/" render={() => {
-                        return <div className="cover-div">
-                            <img src="//stats.seandolinar.com/photos_seantrek/cover/seantrek_cover.jpg" className="cover-img" style={{'bottom': this.state.bottom} }/>
+                        return <div className="cover-container">
+                            <div className="cover-fixed-div" style={{'top': 0-this.state.transformValue}}>
+                                <img
+                                    src="//stats.seandolinar.com/photos_seantrek/cover/seantrek_cover.jpg"
+                                    className="cover-img"
+                                    style={{'bottom': 500, 'transform': this.state.transform, 'width': 2000, 'left': this.state.windowLeftAdjust} }/>
+                            </div>
+                            <div className="cover-text-box-intro" style={{'top': 300}}>
+
+                            </div>
+                            <div className="cover-div-spacer" style={{'height': 700}}>
+                                <div className="cover-div-spacer-title">#SeanTrek</div>
+                                <TextBoxIntro>
+                                    I have traveled all around the US and a few places in Canada. 
+                                    It's always interesting to find stuff in your own country that's different from what you are use to.
+                                </TextBoxIntro>
+                            </div>
                         </div>
+
                     }}/>
                 </Switch>
                 <div className="seantrek-page">

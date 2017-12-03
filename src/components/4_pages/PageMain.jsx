@@ -27,10 +27,6 @@ class PageMain extends React.Component {
         }
 
         return <div className="page-main">
-            <TextBoxIntro>
-                    I have traveled all around the US and a few places in Canada. 
-                    It's always interesting to find stuff in your own country that's different from what you are use to.
-            </TextBoxIntro>
             <ul>{listTrips}</ul>
         </div>
     }

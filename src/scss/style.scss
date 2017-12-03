@@ -47,6 +47,7 @@ h1 {
   text-align: left;
   width: 80%;
   max-width: em(400);
+  background-color: rgba(255,255,255,.7);
   
   .text-box-intro-copy {
     padding: em(30);
@@ -132,14 +133,35 @@ h1 {
   }
 }
 
+.cover-container {
+  height: 100%;
+  margin-bottom: 50px;
+}
 
-
-.cover-div {
+.cover-fixed-div {
   overflow: hidden;
-  height: 700px;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  top: 50px;
+  z-index: -1;
 }
 
 .cover-img {
   position: relative;
-  bottom: 500px;
+  bottom: 600px;
+  width: 100%;
+}
+
+.cover-div-spacer {
+  padding-top: 150px;
+}
+
+.cover-div-spacer-title {
+  color: #fff;
+  font-size: 80px;
+  font-family: 'Actor'; 
+  text-align: center; 
+  margin-bottom: em(10);
 }
