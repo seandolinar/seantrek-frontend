@@ -22,6 +22,9 @@ const ExampleDomainService = {
     getState (state) {
         return DataAccessService.get('//127.0.0.1:5000/api/state/' + state)
     },
+    getPresident (president) {
+        return DataAccessService.get('//127.0.0.1:5000/api/president/' + president)
+    },
     getFakePromise (doReject) {
         // doReject as true will throw an error
         return new Promise((resolve, reject) => {

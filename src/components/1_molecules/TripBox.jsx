@@ -8,10 +8,12 @@ class TripBox extends React.Component {
     render () {
         let data = this.props.data
 
-        return <li>
+        return <li className="trip-box">
             <HeaderTrip trip={data.trip_label} />
-            <div className="main-trip-desc">{data.trip_desc}</div>
-            <MainPhotoBox photos={data.photos} />
+            <div className="trip-box-content">
+                <MainPhotoBox photos={data.photos} />
+                <div className="main-trip-desc">{data.trip_desc}</div>
+            </div>
         </li>
     }
 }

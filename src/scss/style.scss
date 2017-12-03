@@ -8,10 +8,21 @@ body, html {
   color: #000;
 }
 
-#example-app {
+#seantrek-app {
   @include flex;
   @include full-height;
+  width: 100%;
+
+ 
+  .seantrek-app-main {
+    width: 100%;
+  }
+  .seantrek-page {
+    max-width: 800px;
+    margin: auto;
+  }
 }
+
 
 a {
   color: inherit;
@@ -56,83 +67,79 @@ h1 {
 }
 
 .main-photo-box {
+  display: block;
+  position: relative;
+  // img {
+  //   max-width: em(300);
+  // }
+}
+
+.main-photo-box-window {
+  overflow: hidden;
+  flex: 1 0 300px;
+  position: relative;
+
+  .main-photo-box-control {
+    display: inline-block;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &.f {
+      right: 0;
+      left: initial;
+    }
+  }
+}
+
+.main-photo-box-wide {
+  // -webkit-transition: -webkit-transform 200ms ease-in;
+  // -moz-transition: -moz-transform 200ms ease-in;
+  //   -o-transition: -o-transform 200ms ease-in;
+       transition: transform 300ms ease-in-out; 
+}
+
+.photo-box-img {
+  display: block;
+  float: left;
+  width: em(300);
 
   img {
-    max-width: em(300);
+    width: 100%;
+  }
+}
+
+.trip-box {
+
+  .trip-box-content {
+    display: flex;
+    align-items: center;
+
+    .main-trip-desc {
+      margin-left: 20px;
+    }
+  }
+
+  &:after {
+    display: block;
+    width: 80%;
+    content: '';
+    border: 1px solid #eee;
+    margin: em(20) auto;
   }
 }
 
 
 
-// h6 {
-//   font-size: 110%;
-//   margin-bottom: 10px;
-// };
+.cover-div {
+  overflow: hidden;
+  height: 700px;
+}
 
-// code {
-//    font-size: 115%;
-// }
-
-// .button.button-primary,
-// button.button-primary,
-// input[type="submit"].button-primary,
-// input[type="reset"].button-primary,
-// input[type="button"].button-primary {
-//   color: #FFFFFF;
-//   background-color: #546E7A;
-//   border-color: #455A64; }
-// .button.button-primary:hover,
-// button.button-primary:hover,
-// input[type="submit"].button-primary:hover,
-// input[type="reset"].button-primary:hover,
-// input[type="button"].button-primary:hover,
-// .button.button-primary:focus,
-// button.button-primary:focus,
-// input[type="submit"].button-primary:focus,
-// input[type="reset"].button-primary:focus,
-// input[type="button"].button-primary:focus {
-//   color: #FFFFFF;
-//   background-color: #37474F;
-//   border-color: #263238;
-// }
-
-// .button-primary {
-//   margin: 5px 5px 0 0;
-//   border-radius: 2px;
-// }
-
-// code {
-//   color: #546E7A;
-// }
-
-// hr {
-//   margin-top: 1rem;
-//   margin-bottom: 1.5rem;
-// }
-
-
-// /*  REDUX STATE CODEBLOCK */
-// pre {
-//   font-size: 90%;
-//   margin: 0;
-//   background-color: #CFD8DC;
-//   counter-reset: line-numbering;
-//   font-family: Consolas, Menlo, Monaco, monospace;
-//   padding: 5px;
-//   border-radius: 3px 10px 3px 10px;
-//   color: #455A64;
-//   white-space: pre-wrap;
-//   word-wrap: break-word;
-// }
-
-// pre .line::before {
-//   content: counter(line-numbering);
-//   counter-increment: line-numbering;
-//   padding-right: 1em;
-//   /* space after numbers */
-//   width: 1.5em;
-//   text-align: right;
-//   font-weight: 600;
-//   font-size: 12px;
-//   color: #616161;
-// }
+.cover-img {
+  position: relative;
+  bottom: 500px;
+}

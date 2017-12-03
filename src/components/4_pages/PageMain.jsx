@@ -1,9 +1,6 @@
 // import PropTypes from 'prop-types'
 import React from 'react'
 import TextBoxIntro from '../0_atoms/TextBoxIntro'
-// import HeaderTrip from '../0_atoms/HeaderTrip'
-// import MainPhotoBox from '../1_molecules/MainPhotoBox'
-
 import TripBox from '../1_molecules/TripBox'
 
 import { fetchTrips } from '../../redux/actions/thunks'

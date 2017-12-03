@@ -16,7 +16,7 @@ ReactDOM.render(
     <AppContainer>
         <Root store={store} />
     </AppContainer>,
-    document.getElementById('example-app')
+    document.getElementById('seantrek-app')
 )
 
 // Hot Module Replacement API
@@ -27,7 +27,7 @@ if (module.hot) {
             <AppContainer>
                 <NextApp store={store}/>
             </AppContainer>,
-            document.getElementById('example-app')
+            document.getElementById('seantrek-app')
         )
     })
 }

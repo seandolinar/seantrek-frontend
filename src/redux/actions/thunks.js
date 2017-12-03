@@ -22,3 +22,10 @@ export function fetchState (state) {
         ExampleDomainService.getState(state)
     )
 }
+
+export function fetchPresident (president) {
+    return loadEntity(
+        ENTITY_KEY.PRESIDENT,
+        ExampleDomainService.getPresident(president)
+    )
+}
