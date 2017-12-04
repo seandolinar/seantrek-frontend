@@ -15,6 +15,16 @@ if (NodeService.isProduction()) {
     const app = express();
 
     // Configure static resources
+
+    app.use(function (req, res, next) {
+        if (!req.secure) {
+            next()
+        } else {
+            console.log('redirect')
+            res.redirect('http://' + req.headers.host + req.url)
+        }
+    })
+
     app.use(
         express.static(
             path.join(__dirname, '/dist')
@@ -33,6 +43,7 @@ if (NodeService.isProduction()) {
     app.listen(PORT, () => {
         console.log(`Started Express server on port ${PORT}`);
     });
+
 } else {
     const webpack = require('webpack');
     const WebpackDevServer = require('webpack-dev-server');
