@@ -14,16 +14,16 @@ const ExampleDomainService = {
      * @returns {*}
      */
     getTrips () {
-        return DataAccessService.get('//127.0.0.1:5000/api/trips')
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/trips')
     },
     getTripOne (id) {
-        return DataAccessService.get('//127.0.0.1:5000/api/tripone/' + id)
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/tripone/' + id)
     },
     getState (state) {
-        return DataAccessService.get('//127.0.0.1:5000/api/state/' + state)
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/state/' + state)
     },
     getPresident (president) {
-        return DataAccessService.get('//127.0.0.1:5000/api/president/' + president)
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/president/' + president)
     },
     getFakePromise (doReject) {
         // doReject as true will throw an error
