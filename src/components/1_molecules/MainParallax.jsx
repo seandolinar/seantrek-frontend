@@ -9,7 +9,7 @@ class MainPhotoBox extends React.Component {
         // const windowWidth = 2000 // window.innerWidth
         const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
 
-        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust}
+        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1}
 
         this.handleScroll = this.handleScroll.bind(this)
         this.handleResize = this.handleResize.bind(this)
@@ -29,9 +29,16 @@ class MainPhotoBox extends React.Component {
 
     handleScroll () {
         window.requestAnimationFrame(() => {
-            let scrollNew = window.scrollY / 2
-            let transform = 'translate3d(0,' + scrollNew + 'px,0)'
-            this.setState({ transform, transformValue: window.scrollY })
+            const scrollNew = window.scrollY / 2
+            const transform = 'translate3d(0,' + scrollNew + 'px,0)'
+            let fade = 1
+
+            if (window.scrollY > 100) {
+                console.log()
+                fade = Math.max((300 - window.scrollY), 0) / 200
+            }
+
+            this.setState({ transform, fade, transformValue: window.scrollY })
         })
     }
 
@@ -47,7 +54,7 @@ class MainPhotoBox extends React.Component {
                 <div className="cover-text-box-intro" style={{'top': 300}}>
 
                 </div>
-                <div className="cover-div-spacer" style={{'height': 700}}>
+                <div id="cover-div-spacer" className="cover-div-spacer" style={{'height': 700, 'opacity': this.state.fade}}>
                     <div className="cover-div-spacer-title">#SeanTrek</div>
                     <TextBoxIntro>
                         I have traveled all around the US and a few places in Canada. 

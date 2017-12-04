@@ -207,3 +207,44 @@ h1 {
   margin-bottom: em(10);
 }
 
+@media screen and (max-width: 900px) {
+
+  .cover-div-spacer-title {
+    font-size: em(60);
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .cover-div-spacer {
+    padding-top: 30%;
+
+    .cover-div-spacer-title {
+      font-size: em(40);
+      margin-bottom: em(20);
+    }
+  }
+
+
+  .main-photo-box-window{
+    flex: 1 0 auto;
+  }
+
+  .trip-box .trip-box-content {
+    display: none;
+  }
+
+  .header-main h1 {
+    margin-left: em(10);
+    line-height: 60px;
+    font-size: 20px;
+
+    .header-options {
+      right: 0;
+      font-size: 14px;
+      a {
+        margin-right: em(16);
+      }
+    }
+  }
+}
