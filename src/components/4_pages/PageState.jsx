@@ -13,10 +13,15 @@ class PageState extends React.Component {
     }
     render () {
         let data = this.props.entities.trips.data
-        console.log(this.props)
+
+        let dummy = []
+        for (let i=0; i< 300; i++) {
+            dummy.push(<li key={ 100 + i }>i</li>)
+        }
+
         if (data) {
             let listTrip = data.map((d, i) => <TripBox key={i} data={d}/>)
-            return <ul>{listTrip}</ul>
+            return <ul>{listTrip.concat(dummy)}</ul>
         } else {
             return <div>No trips!</div>
         }

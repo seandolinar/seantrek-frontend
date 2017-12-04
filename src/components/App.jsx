@@ -60,10 +60,15 @@ class App extends React.Component {
     render () {
         return (
             <div className="seantrek-app-main" onScroll={this.handleWheel}>
-                {/* <Header/> */}
+                <Switch>
+                    <Route exact path="/" render={() => {
+                        console.log('path')
+                        return <Header headerLimit="500" show={false} />
+                    }}/>
+                    <Route path="*" component={Header} />
+                </Switch>
                 <Switch>
                     <Route exact path="/" component={MainParallax}/>
-                    <Route path="*" component={Header} />
                 </Switch>
                 <div className="seantrek-page">
                     <Switch>

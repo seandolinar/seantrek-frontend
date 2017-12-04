@@ -36,8 +36,6 @@ class MainPhotoBox extends React.Component {
     }
 
     render () {
-
-
         return (
             <div className="cover-container">
                 <div className="cover-fixed-div" style={{'top': -this.state.transformValue}}>
