@@ -62,10 +62,14 @@ class App extends React.Component {
             <div className="seantrek-app-main" onScroll={this.handleWheel}>
                 <Switch>
                     <Route exact path="/" render={() => {
-                        console.log('path')
-                        return <Header headerLimit="500" show={false} />
+                        const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+                        return <Header headerLimit={vh} show={false} />
                     }}/>
-                    <Route path="*" component={Header} />
+                    <Route path="*" render={() => {
+                        return <div>
+                            <Header />
+                        </div>
+                    }}/>
                 </Switch>
                 <Switch>
                     <Route exact path="/" component={MainParallax}/>

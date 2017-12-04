@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 class Header extends React.Component {
     constructor (props) {
         super(props)
-        console.log(props)
         this.state = { sticky: false }
         this.handleScroll = this.handleScroll.bind(this)
     }
@@ -19,24 +18,39 @@ class Header extends React.Component {
     }
 
     componentWillReceiveProps (nextProps) {
-        console.log(nextProps)
         this.setState({show: nextProps.show})
     }
 
     componentWillMount () {
+        this.setState({ show: this.props.show })
         window.addEventListener('scroll', this.handleScroll)
     }
 
     render () {
-        console.log(this.props)
-        return <Link to={this.props.href}>
-            <div className={'header-main ' +
+        return <div className={'header-main ' +
             (this.state.sticky ? 'sticky' : '') +
-            (this.state.show ? ' show' : ' hide')
-            }>
-                <h1 className="header-text">{this.props.title}</h1>
-            </div>
-        </Link>
+            (!this.state.show ? ' hide' : ' show')
+        }>
+            <h1 className="header-text">
+                <Link to={this.props.href}>
+                    {this.props.title}
+                </Link>
+                <div className="header-options">
+                    <Link to="/trips">
+                        Trips
+                    </Link>
+                    <Link to="/states">
+                        States
+                    </Link>
+                    <Link to="/sites">
+                        Sites
+                    </Link>
+                    <Link to="/about">
+                        About
+                    </Link>
+                </div>
+            </h1>
+        </div>
     }
 }
 

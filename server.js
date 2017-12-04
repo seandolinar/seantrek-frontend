@@ -17,10 +17,9 @@ if (NodeService.isProduction()) {
     // Configure static resources
 
     app.use(function (req, res, next) {
-        if (!req.secure) {
+        if (req.protocol !== 'https') {
             next()
         } else {
-            console.log('redirect')
             res.redirect('http://' + req.headers.host + req.url)
         }
     })
@@ -29,7 +28,7 @@ if (NodeService.isProduction()) {
         express.static(
             path.join(__dirname, '/dist')
         )
-    );
+    )
 
     // Configure server-side routing
     app.get('*', (req, res) => {
