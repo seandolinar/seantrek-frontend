@@ -13,7 +13,7 @@ class PageTrip extends React.Component {
         let data = _.first(this.props.entities.trip_one.data)
 
         if (this.props.entities.trip_one.data) {
-            let states = data.states.map((d, i) => <Link key={i} to={'/state/' + d.abbreviation}>{d.abbreviation}</Link>)
+            let states = data.states.map((d, i) => <Link key={i} to={'/states/' + d.abbreviation}>{d.abbreviation}</Link>)
             let presidents = data.presidents.map((d, i) => <Link key={i} to={'/president/' + d.number}>{d.president_last}</Link>)
 
             return <div className="page-trip">

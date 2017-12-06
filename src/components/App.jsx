@@ -43,7 +43,8 @@ class App extends React.Component {
                         <Route path="/about" component={PageAbout}/>
                         <Route exact path="/treks" component={PageTreks}/>
                         <Route path="/treks/:trip_name" component={PageTrip}/>
-                        <Route path="/state/:state_name" component={PageState}/>
+                         {/* put /states in here  */}
+                        <Route path="/states/:state_name" component={PageState}/>
                         <Route path="/president/:president_number" component={PagePresident}/>
 
                         <Route path="/component-manifest" component={ComponentManifest}/>

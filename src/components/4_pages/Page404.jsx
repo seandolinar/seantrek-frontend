@@ -4,12 +4,14 @@ import React from 'react'
 
 // import { fetchPresident } from '../../redux/actions/thunks'
 // import { connect } from 'react-redux'
+import test from '../common/test'
 
 class Page404 extends React.Component {
-    componentWillMount () {
+    componentDidMount () {
+        test() // d3 call
     }
     render () {
-        return <div>404!</div>
+        return <div className="d3-test">404!</div>
     }
 }
 

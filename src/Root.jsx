@@ -9,7 +9,7 @@ export default function Root ({
 }) {
     return (
         <Provider store={store}>
-            <BrowserRouter>
+            <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
                 <App />
             </BrowserRouter>
         </Provider>

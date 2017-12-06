@@ -10,7 +10,7 @@ body, html {
 
 #seantrek-app {
   @include flex;
-  @include full-height;
+  // @include full-height;
   width: 100%;
 
  
@@ -278,5 +278,17 @@ h1 {
         margin-right: em(16);
       }
     }
+  }
+}
+
+
+#d3-container {
+  position: relative;
+  width: 75%;
+  height: 500px;
+  margin: auto;
+
+  path {
+    cursor: pointer;
   }
 }
