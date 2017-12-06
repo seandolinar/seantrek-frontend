@@ -12,16 +12,18 @@ class MainPhotoBox extends React.Component {
     }
 
     handlesAdvance () {
-        let newX = this.state.xTrans - 300
+        let max = (this.props.photos.length-1) * 300
+        let newX = Math.max((this.state.xTrans - 300), -max)
         this.setState({ xTrans: newX })
     }
     handlesBack () {
-        let newX = this.state.xTrans + 300
+        // let max = (this.props.photos.length-1) * 300
+        let newX = Math.min((this.state.xTrans + 300), 0)
         this.setState({ xTrans: newX })
     }
 
     render () {
-        let images = this.props.photos.map((d, i) => <div className="photo-box-img" key={i}><img src={'//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name} /></div>)
+        let images = this.props.photos.map((d, i) => <div className="photo-box-img" key={i} style={{'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')'}}></div>)
         let photoWidth = 300
         let wideWidth = images.length * photoWidth
 

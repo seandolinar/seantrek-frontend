@@ -1,4 +1,4 @@
-import NodeService from '../../services/common/node-service';
+import NodeService from '../../services/common/node-service'
 
 /**
  * Determine which Redux store to provide based on the
@@ -8,4 +8,4 @@ import NodeService from '../../services/common/node-service';
 
 export default NodeService.isProduction()
     ? require('./configure-store.prod').default
-    : require('./configure-store.dev').default;
+    : require('./configure-store.dev').default

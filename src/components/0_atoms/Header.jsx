@@ -36,8 +36,8 @@ class Header extends React.Component {
                     {this.props.title}
                 </Link>
                 <div className="header-options">
-                    <Link to="/trips">
-                        Trips
+                    <Link to="/treks">
+                        Treks
                     </Link>
                     <Link to="/states">
                         States

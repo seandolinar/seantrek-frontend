@@ -18,7 +18,7 @@ body, html {
     width: 100%;
   }
   .seantrek-page {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     margin-top: 100px;
   }
@@ -118,21 +118,26 @@ h1 {
 
 .main-photo-box-window {
   overflow: hidden;
-  flex: 1 0 300px;
+  flex: 0 0 300px;
   position: relative;
 
   .main-photo-box-control {
     display: inline-block;
     height: 100%;
-    width: 50px;
+    width: 60px;
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    cursor: pointer;
 
     &.f {
       right: 0;
       left: initial;
+    }
+    &:hover {
+      opacity: .25;
+      background-color: #000;
     }
   }
 }
@@ -148,6 +153,9 @@ h1 {
   display: block;
   float: left;
   width: em(300);
+  background-size: cover;
+  background-position: 50%;
+  height: em(400);
 
   img {
     width: 100%;
@@ -158,11 +166,16 @@ h1 {
 
   .trip-box-content {
     display: flex;
-    align-items: center;
+    // align-items: center;
+    justify-content: space-between;
 
     .main-trip-desc {
-      margin-left: 20px;
+      // margin-left: 20px;
+      margin-right: 80px;
     }
+  }
+  .header-trip {
+    margin-bottom: em(20);
   }
 
   &:after {
@@ -207,6 +220,25 @@ h1 {
   margin-bottom: em(10);
 }
 
+.page-main {
+  h2 {
+    
+  }
+  .page-main-h2 {
+    color: #000;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    font-size: 18px;
+    // magin: 0 em(-20);
+  }
+  .page-main-trips {
+    margin: auto;
+    margin-top: em(50);
+    width: em(700);
+  }
+}
+
 @media screen and (max-width: 900px) {
 
   .cover-div-spacer-title {
@@ -227,7 +259,7 @@ h1 {
 
 
   .main-photo-box-window{
-    flex: 1 0 auto;
+    flex: 0 0 auto;
   }
 
   .trip-box .trip-box-content {

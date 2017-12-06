@@ -3,19 +3,19 @@ import React from 'react'
 
 import TripBox from '../1_molecules/TripBox'
 
-import { fetchTripsFeatured } from '../../redux/actions/thunks'
+import { fetchTrips } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 
 // import { Link, Route, Switch } from 'react-router-dom'
 
-class PageMain extends React.Component {
+class PageTreks extends React.Component {
     componentWillMount () {
-        if (_.isEmpty(this.props.entities.trips_featured)) {
-            this.props.fetchTripsFeatured()
+        if (_.isEmpty(this.props.entities.trips)) {
+            this.props.fetchTrips()
         }
     }
     render () {
-        let data = this.props.entities.trips_featured.data
+        let data = this.props.entities.trips.data
         let listTrips = ''
 
         if (data) {
@@ -29,11 +29,6 @@ class PageMain extends React.Component {
         return <div className="page-main">
             <h2 className="page-main-h2">The Treks</h2>
             <ul className="page-main-trips">{listTrips}</ul>
-            <h2 className="page-main-h2">The States (and Provinces)</h2>
-            <ul className="page-main-trips">{listTrips}</ul>
-            <h2 className="page-main-h2">The Sites</h2>
-            <ul className="page-main-trips">{listTrips}</ul>
-
         </div>
     }
 }
@@ -47,6 +42,6 @@ export default connect(
         entities: state.entities
     }),
     {
-        fetchTripsFeatured
+        fetchTrips
     }
-)(PageMain)
+)(PageTreks)

@@ -5,10 +5,6 @@ import {Link} from 'react-router-dom'
 import { fetchTripOne } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 
-const matchRoute = (route, tripArray) => {
-    return tripArray.find((d, i) => d.trip_label.toLowerCase().replace(/ /g, '-') === route).trip_id
-}
-
 class PageTrip extends React.Component {
     componentWillMount () {
         this.props.fetchTripOne(this.props.match.params.trip_name)

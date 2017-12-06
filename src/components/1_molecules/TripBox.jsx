@@ -11,8 +11,8 @@ class TripBox extends React.Component {
         return <li className="trip-box">
             <HeaderTrip trip={data.trip_label} />
             <div className="trip-box-content">
-                <MainPhotoBox photos={data.photos} />
                 <div className="main-trip-desc">{data.trip_desc}</div>
+                <MainPhotoBox photos={data.photos} />
             </div>
         </li>
     }

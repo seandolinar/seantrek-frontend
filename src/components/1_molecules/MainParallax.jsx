@@ -34,7 +34,6 @@ class MainPhotoBox extends React.Component {
             let fade = 1
 
             if (window.scrollY > 100) {
-                console.log()
                 fade = Math.max((300 - window.scrollY), 0) / 200
             }
 

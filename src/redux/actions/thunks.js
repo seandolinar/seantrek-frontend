@@ -1,31 +1,38 @@
 import { ENTITY_KEY } from '../../common/app-const'
 import { loadEntity } from 'redux-entity'
-import ExampleDomainService from '../../services/domain/example-domain-service'
+import apiAddress from '../../services/api/api-address'
 
 export function fetchTrips () {
     return loadEntity(
         ENTITY_KEY.TRIPS,
-        ExampleDomainService.getTrips()
+        apiAddress.getTrips()
+    )
+}
+
+export function fetchTripsFeatured () {
+    return loadEntity(
+        ENTITY_KEY.TRIPSFEATURED,
+        apiAddress.getTripsFeatured()
     )
 }
 
 export function fetchTripOne (id) {
     return loadEntity(
         ENTITY_KEY.TRIPONE,
-        ExampleDomainService.getTripOne(id)
+        apiAddress.getTripOne(id)
     )
 }
 
 export function fetchState (state) {
     return loadEntity(
         ENTITY_KEY.TRIPS,
-        ExampleDomainService.getState(state)
+        apiAddress.getState(state)
     )
 }
 
 export function fetchPresident (president) {
     return loadEntity(
         ENTITY_KEY.PRESIDENT,
-        ExampleDomainService.getPresident(president)
+        apiAddress.getPresident(president)
     )
 }
