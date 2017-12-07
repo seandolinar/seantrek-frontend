@@ -17,6 +17,9 @@ const apiAddress = {
     getPresident (president) {
         return DataAccessService.get('//seantrek-api.herokuapp.com/api/president/' + president)
     },
+    getTripsFeatured () {
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/trips-featured')
+    }
     // getTrips () {
     //     return DataAccessService.get('//localhost:5000/api/trips')
     // },
