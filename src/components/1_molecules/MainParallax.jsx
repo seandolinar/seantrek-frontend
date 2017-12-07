@@ -11,14 +11,45 @@ class MainPhotoBox extends React.Component {
 
         this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1}
 
-        this.handleScroll = this.handleScroll.bind(this)
+        // this.handleScroll = this.handleScroll.bind(this)
         this.handleResize = this.handleResize.bind(this)
     }
 
     componentWillMount () {
-        const throttleScroll = this.handleScroll
-        window.addEventListener('scroll', throttleScroll)
+        // const throttleScroll = this.handleScroll
+        // window.addEventListener('scroll', throttleScroll)
+
+        let requesting = false
+        
+        let killRequesting = _.debounce(function () {
+            requesting = false
+        }, 100)
+
+        let onScroll = () => {
+            if (!requesting) {
+                requesting = true
+                requestAnimationFrame(parallax)
+            }
+            killRequesting()
+        }
+
+        let parallax = () => {
+            const scrollNew = window.scrollY / 2
+            const transform = 'translate3d(0,' + scrollNew + 'px,0)'
+            let fade = 1
+
+            if (window.scrollY > 100) {
+                fade = Math.max((300 - window.scrollY), 0) / 200
+            }
+
+            this.setState({ transform, fade, transformValue: window.scrollY })
+            if (requesting) {
+                requestAnimationFrame(parallax)
+            }
+        }
+
         window.addEventListener('resize', this.handleResize)
+        window.addEventListener('scroll', onScroll, false)
     }
 
     handleResize () {
@@ -27,7 +58,7 @@ class MainPhotoBox extends React.Component {
         this.setState({windowLeftAdjust})
     }
 
-    handleScroll () {
+    handleScroll2 () {
         window.requestAnimationFrame(() => {
             const scrollNew = window.scrollY / 2
             const transform = 'translate3d(0,' + scrollNew + 'px,0)'
@@ -40,6 +71,8 @@ class MainPhotoBox extends React.Component {
             this.setState({ transform, fade, transformValue: window.scrollY })
         })
     }
+
+
 
     render () {
         return (
