@@ -1,20 +1,23 @@
 import Datamap from 'datamaps'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
-let map = (history) => {
+let map = (history, data) => {
     return new Datamap(
         {
             scope: 'usa',
             element: document.getElementById('d3-container'),
             projection: 'mercator',
             fills: {
+                ONE: '#eaeff4',
+                TWO: '#c1d1e0',
+                THREE: '#99b2cc',
+                FOUR: '#7093b7',
+                FIVE: '#4775a3',
+                SIX: '#2d5b89',
                 VISITED: '#336699',
                 defaultFill: '#aaaaaa'
             },
-            data: {
-                // need to put data into this
-                PA: {fillKey: 'VISITED'}
-            },
+            data: data,
             geographyConfig: {
                 // tooltip
                 popupTemplate: function(geography, data) {
@@ -29,7 +32,6 @@ let map = (history) => {
                     history.push('/states/' + geography.id)
                 })
             }
-    
         }
     )
 } 

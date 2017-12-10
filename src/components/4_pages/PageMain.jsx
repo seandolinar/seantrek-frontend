@@ -2,8 +2,9 @@
 import React from 'react'
 
 import TripBox from '../1_molecules/TripBox'
+import PhotoGrid from '../1_molecules/PhotoGrid'
 
-import { fetchTripsFeatured } from '../../redux/actions/thunks'
+import { fetchTripsFeatured, fetchStateCount, fetchPhotoGrid } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 import map from '../common/map'
 
@@ -14,9 +15,19 @@ class PageMain extends React.Component {
         if (_.isEmpty(this.props.entities.trips_featured)) {
             this.props.fetchTripsFeatured()
         }
+        this.props.fetchStateCount()
+        this.props.fetchPhotoGrid()
     }
     componentDidMount () {
-        map(this.props.history)
+        this.map = map(this.props.history, {})      
+    }
+    componentDidUpdate () {
+        if (document.getElementById('d3-container').childElementCount == 0) {
+            // map(this.props.history, this.props.entities.state_count.data)
+        }
+        // if (document.getElementById('d3-container').childElementCount)
+        // map(this.props.history, this.props.entities.state_count.data)
+        this.map.updateChoropleth(this.props.entities.state_count.data)
     }
     render () {
         let data = this.props.entities.trips_featured.data
@@ -29,6 +40,13 @@ class PageMain extends React.Component {
                 )
             })
         }
+        let photoData = this.props.entities.photo_grid.data
+        let photoBox = ''
+
+        if (photoData) {
+            photoBox = <PhotoGrid data={photoData}/ >
+        }
+
 
         return <div className="page-main">
             <h2 className="page-main-h2">The Treks</h2>
@@ -36,7 +54,7 @@ class PageMain extends React.Component {
             <h2 className="page-main-h2">The States (and Provinces)</h2>
             <div id="d3-container"></div>
             <h2 className="page-main-h2">The Sites</h2>
-            <ul className="page-main-trips">{listTrips}</ul>
+            <ul className="page-main-photo-box">{photoBox}</ul>
         </div>
     }
 }
@@ -50,6 +68,8 @@ export default connect(
         entities: state.entities
     }),
     {
-        fetchTripsFeatured
+        fetchTripsFeatured,
+        fetchStateCount,
+        fetchPhotoGrid
     }
 )(PageMain)

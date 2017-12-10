@@ -32,8 +32,8 @@ class MainPhotoBox extends React.Component {
                 <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + this.state.xTrans + 'px,0)'}}>
                     {images}
                 </div>
-                <div className="main-photo-box-control b" onClick={this.handlesBack}>B</div>
-                <div className="main-photo-box-control f" onClick={this.handlesAdvance}>F</div>
+                <div className="main-photo-box-control b" onClick={this.handlesBack}>{'<'}</div>
+                <div className="main-photo-box-control f" onClick={this.handlesAdvance}>{'>'}</div>
             </div>
         )
     }

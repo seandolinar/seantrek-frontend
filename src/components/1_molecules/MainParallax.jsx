@@ -16,11 +16,9 @@ class MainPhotoBox extends React.Component {
     }
 
     componentWillMount () {
-        // const throttleScroll = this.handleScroll
-        // window.addEventListener('scroll', throttleScroll)
-
+        // possible jittery safari solution...will need to test this, because it might not be doing anything
         let requesting = false
-        
+  
         let killRequesting = _.debounce(function () {
             requesting = false
         }, 100)

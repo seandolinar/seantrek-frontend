@@ -19,7 +19,9 @@ const apiAddress = {
     },
     getTripsFeatured () {
         return DataAccessService.get('//seantrek-api.herokuapp.com/api/trips-featured')
-    }
+    },
+    getPhotoGrid () {
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/photo-grid')
     // getTrips () {
     //     return DataAccessService.get('//localhost:5000/api/trips')
     // },
@@ -32,8 +34,14 @@ const apiAddress = {
     // getState (state) {
     //     return DataAccessService.get('//localhost:5000/api/state/' + state)
     // },
+    // getStateCount () {
+    //     return DataAccessService.get('//localhost:5000/api/state-count')
+    // },
     // getPresident (president) {
     //     return DataAccessService.get('//localhost:5000/api/president/' + president)
+    // },
+    // getPhotoGrid () {
+    //     return DataAccessService.get('//localhost:5000/api/photo-grid')
     // }
 }
 

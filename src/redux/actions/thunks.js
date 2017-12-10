@@ -30,9 +30,23 @@ export function fetchState (state) {
     )
 }
 
+export function fetchStateCount () {
+    return loadEntity(
+        ENTITY_KEY.STATECOUNT,
+        apiAddress.getStateCount()
+    )
+}
+
 export function fetchPresident (president) {
     return loadEntity(
         ENTITY_KEY.PRESIDENT,
         apiAddress.getPresident(president)
+    )
+}
+
+export function fetchPhotoGrid (president) {
+    return loadEntity(
+        ENTITY_KEY.PHOTOGRID,
+        apiAddress.getPhotoGrid()
     )
 }

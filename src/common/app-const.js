@@ -4,7 +4,9 @@ export const ENTITY_KEY = {
     TRIPS: 'trips',
     TRIPONE: 'trip_one',
     TRIPSFEATURED: 'trips_featured',
-    PRESIDENT: 'president'
+    PRESIDENT: 'president',
+    STATECOUNT: 'state_count',
+    PHOTOGRID: 'photo_grid'
 }
 
 export const INITIAL_STATE = {
@@ -12,7 +14,8 @@ export const INITIAL_STATE = {
         [ENTITY_KEY.TRIPS]: {},
         [ENTITY_KEY.TRIPSFEATURED]: {},
         [ENTITY_KEY.TRIPONE]: {},
-        [ENTITY_KEY.PRESIDENT]: {}
-
+        [ENTITY_KEY.PRESIDENT]: {},
+        [ENTITY_KEY.STATECOUNT]: {},
+        [ENTITY_KEY.PHOTOGRID]: {}
     }
 }
