@@ -22,6 +22,7 @@ const apiAddress = {
     },
     getPhotoGrid () {
         return DataAccessService.get('//seantrek-api.herokuapp.com/api/photo-grid')
+    }
     // getTrips () {
     //     return DataAccessService.get('//localhost:5000/api/trips')
     // },
