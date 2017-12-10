@@ -14,6 +14,9 @@ const apiAddress = {
     getState (state) {
         return DataAccessService.get('//seantrek-api.herokuapp.com/api/state/' + state)
     },
+    getStateCount () {
+        return DataAccessService.get('//seantrek-api.herokuapp.com/api/state-count')
+    },
     getPresident (president) {
         return DataAccessService.get('//seantrek-api.herokuapp.com/api/president/' + president)
     },
