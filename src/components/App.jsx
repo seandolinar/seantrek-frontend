@@ -7,9 +7,12 @@ import PageMain from './4_pages/PageMain'
 import PageTreks from './4_pages/PageTreks'
 import PageTrip from './4_pages/PageTrip'
 import PageState from './4_pages/PageState'
+import PageStateAll from './4_pages/PageStateAll'
 import PagePresident from './4_pages/PagePresident'
+import PagePhoto from './4_pages/PagePhoto'
 import Page404 from './4_pages/Page404'
 import PageAbout from './4_pages/PageAbout'
+import Footer from './0_atoms/Footer'
 
 import ComponentManifest from './_ComponentManifest'
 
@@ -29,9 +32,7 @@ class App extends React.Component {
                         return <Header headerLimit={vh} show={false} />
                     }}/>
                     <Route path="*" render={() => {
-                        return <div>
-                            <Header />
-                        </div>
+                        return <Header />        
                     }}/>
                 </Switch>
                 <Switch>
@@ -43,15 +44,16 @@ class App extends React.Component {
                         <Route path="/about" component={PageAbout}/>
                         <Route exact path="/treks" component={PageTreks}/>
                         <Route path="/treks/:trip_name" component={PageTrip}/>
-                         {/* put /states in here  */}
+                        <Route exact path="/states" component={PageStateAll}/>
                         <Route path="/states/:state_name" component={PageState}/>
                         <Route path="/president/:president_number" component={PagePresident}/>
-
+                        <Route path="/photos/:photo_id" component={PagePhoto}/>
                         <Route path="/component-manifest" component={ComponentManifest}/>
 
-                        <Route path="*" component={Page404}/>
+                        <Route path="*" component={Page404} status={404}/>
                     </Switch>
                 </div>
+                <Footer />
             </div>
         )
     }

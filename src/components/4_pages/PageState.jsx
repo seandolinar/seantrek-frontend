@@ -7,6 +7,8 @@ import TripBox from '../1_molecules/TripBox'
 import { fetchState } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 
+import map from '../common/map'
+
 class PageState extends React.Component {
     componentWillMount () {
         this.props.fetchState(this.props.match.params.state_name)

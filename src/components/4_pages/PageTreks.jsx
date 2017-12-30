@@ -6,14 +6,26 @@ import TripBox from '../1_molecules/TripBox'
 import { fetchTrips } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 
+import build from '../common/d3TrekTimeline'
+
 // import { Link, Route, Switch } from 'react-router-dom'
 
 class PageTreks extends React.Component {
     componentWillMount () {
-        if (_.isEmpty(this.props.entities.trips)) {
-            this.props.fetchTrips()
+        // if (_.isEmpty(this.props.entities.trips)) {
+        //     this.props.fetchTrips()
+        // }
+        this.props.fetchTrips()
+    }
+
+    componentDidUpdate () {
+        let data = this.props.entities.trips.data
+
+        if (data) {
+            build(data)
         }
     }
+
     render () {
         let data = this.props.entities.trips.data
         let listTrips = ''
@@ -21,7 +33,8 @@ class PageTreks extends React.Component {
         if (data) {
             listTrips = data.map((d, i) => {
                 return (
-                    <TripBox key={i} data={d} />
+                    null
+                    // <TripBox key={i} data={d} />
                 )
             })
         }

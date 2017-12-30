@@ -50,3 +50,10 @@ export function fetchPhotoGrid (president) {
         apiAddress.getPhotoGrid()
     )
 }
+
+export function fetchPhoto (photoId) {
+    return loadEntity(
+        ENTITY_KEY.PHOTO,
+        apiAddress.getPhoto(photoId)
+    )
+}

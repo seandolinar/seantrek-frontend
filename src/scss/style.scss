@@ -12,13 +12,17 @@ body, html {
   @include flex;
   // @include full-height;
   width: 100%;
-
- 
+  min-height: 100vh;
+  position: relative;
+  
   .seantrek-app-main {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .seantrek-page {
     max-width: 900px;
+    width: 100%;
     margin: auto;
     margin-top: 100px;
   }
@@ -27,6 +31,10 @@ body, html {
 
 a {
   color: inherit;
+  cursor: pointer;
+  &:hover {
+    // color: #ccc;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,6 +66,10 @@ h1 {
 
       a {
         margin-right: em(20);
+        &:hover, &.active {
+          border-bottom: 3px solid #000;
+          transition: border 150ms ease-in-out;
+        }
       }
     }
   }
@@ -71,10 +83,20 @@ h1 {
 }
 
 .hide {
+  
   top: -100px;
+  &.header-main { 
 
-  .header-options {
-    color: #fff;
+    .header-options {
+      color: #fff;
+
+      a {
+        &:hover, &.active {
+          border-bottom: 3px solid #fff;
+          transition: border 150ms ease-in-out;
+        }
+      }
+    }
   }
 }
 
@@ -139,6 +161,17 @@ h1 {
       right: 0;
       left: initial;
     }
+
+    &.u {
+      left: 0;
+      top: initial;
+      bottom: 0;
+      width: 100%;
+      // height: 50px;
+      height: 30px;
+      padding: 10px 0;
+    }
+
     &:hover {
       opacity: .25;
       background-color: #000;
@@ -230,6 +263,7 @@ h1 {
 }
 
 .page-main {
+  margin: 0 em(10);
   h2 {
     
   }
@@ -247,49 +281,6 @@ h1 {
     max-width: em(700);
   }
 }
-
-@media screen and (max-width: 900px) {
-
-  .cover-div-spacer-title {
-    font-size: em(60);
-  }
-}
-
-
-@media screen and (max-width: 480px) {
-  .cover-div-spacer {
-    padding-top: 30%;
-
-    .cover-div-spacer-title {
-      font-size: em(40);
-      margin-bottom: em(20);
-    }
-  }
-
-
-  .main-photo-box-window{
-    flex: 0 0 auto;
-  }
-
-  .trip-box .trip-box-content {
-    display: none;
-  }
-
-  .header-main h1 {
-    margin-left: em(10);
-    line-height: 60px;
-    font-size: 20px;
-
-    .header-options {
-      right: 0;
-      font-size: 14px;
-      a {
-        margin-right: em(16);
-      }
-    }
-  }
-}
-
 
 #d3-container {
   position: relative;
@@ -336,3 +327,138 @@ h1 {
   }
 }
 
+.page-photo {
+  // box-sizing: border-box;
+  padding: 0 em(10) em(100);
+  
+  img {
+    width: 100%;
+    margin: em(20) auto;
+    // box-sizing: border-box;
+  }
+
+  .photo-title {
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+  .photo-caption {
+    text-align: center;
+    padding: em(10) 25%;
+  }
+
+}
+
+
+footer {
+  // height: em(100);
+  background-color: #ace;
+  margin-top: em(100);
+  text-align: right;
+  padding: em(100) em(20) em(10) 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 900px) {
+
+  .cover-div-spacer-title {
+    font-size: em(60);
+  }
+
+  .photo-grid {
+    justify-content: space-around;
+    
+    .photo-grid-img  {
+      width: em(150);
+      height: em(150);
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .photo-grid {
+    justify-content: space-around;
+    
+    .photo-grid-img  {
+      width: em(125);
+      height: em(125);
+    }
+  }
+}  
+
+@media screen and (max-width: 525px) {
+  .photo-grid {
+    flex-direction: column;
+    .photo-grid-col {
+      margin-bottom: em(20);
+    }
+    .photo-grid-img  {
+      width: em(200);
+      height: em(200);
+      margin: auto;
+      margin-bottom: em(10);
+    }
+  }
+}  
+
+
+@media screen and (max-width: 480px) {
+  .cover-div-spacer {
+    padding-top: 30%;
+
+    .cover-div-spacer-title {
+      font-size: em(40);
+      margin-bottom: em(20);
+    }
+  }
+
+
+  .main-photo-box-window{
+    flex: 0 0 auto;
+  }
+
+  .trip-box .trip-box-content {
+    display: none;
+  }
+
+  .header-main h1 {
+    margin-left: em(10);
+    line-height: 60px;
+    font-size: 20px;
+
+    .header-options {
+      right: 0;
+      font-size: 14px;
+      a {
+        margin-right: em(16);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// D3 stuff
+
+.date-plate-rect {
+  fill: #fff;
+  // stroke: #555;
+  // stroke-width: 3px;
+}
+
+.date-plate-text {
+  font-size: 22px;
+}
+
+.timeline path {
+  stroke: #000;
+  stroke-width: 10px;
+  fill: #fff;
+  width: 20px;
+}

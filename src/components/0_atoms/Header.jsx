@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 class Header extends React.Component {
     constructor (props) {
@@ -27,7 +27,7 @@ class Header extends React.Component {
     }
 
     render () {
-        return <div className={'header-main ' +
+        return <header className={'header-main ' +
             (this.state.sticky ? 'sticky' : '') +
             (!this.state.show ? ' hide' : ' show')
         }>
@@ -35,22 +35,22 @@ class Header extends React.Component {
                 <Link to={this.props.href}>
                     {this.props.title}
                 </Link>
-                <div className="header-options">
-                    <Link to="/treks">
+                <nav className="header-options">
+                    <NavLink to="/treks" activeClassName="active">
                         Treks
-                    </Link>
-                    <Link to="/states">
+                    </NavLink>
+                    <NavLink to="/states" activeClassName="active">
                         States
-                    </Link>
-                    <Link to="/sites">
+                    </NavLink>
+                    <NavLink to="/sites" activeClassName="active">
                         Sites
-                    </Link>
-                    <Link to="/about">
+                    </NavLink>
+                    <NavLink to="/about" activeClassName="active">
                         About
-                    </Link>
-                </div>
+                    </NavLink>
+                </nav>
             </h1>
-        </div>
+        </header>
     }
 }
 
