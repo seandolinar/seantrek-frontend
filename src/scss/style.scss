@@ -442,6 +442,17 @@ footer {
 
 
 
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) { 
+      #seantrek-app {
+        min-height: initial;
+        height: 667px;
+      }
+    }
+
+
 
 
 // D3 stuff
