@@ -32,3 +32,9 @@ $font-default: 16;
 @function em($pixels, $context: $font-default) {
   @return #{$pixels/$context}em;
 }
+
+
+
+.float-right {
+    float: right;
+}

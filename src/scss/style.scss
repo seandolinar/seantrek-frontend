@@ -387,106 +387,6 @@ footer {
   box-sizing: border-box;
 }
 
-
-@media screen and (max-width: 900px) {
-
-  .cover-div-spacer-title {
-    font-size: em(60);
-  }
-
-  .photo-grid {
-    justify-content: space-around;
-    
-    .photo-grid-img  {
-      width: em(150);
-      height: em(150);
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .photo-grid {
-    justify-content: space-around;
-    
-    .photo-grid-img  {
-      width: em(125);
-      height: em(125);
-    }
-  }
-}  
-
-@media screen and (max-width: 525px) {
-  .photo-grid {
-    flex-direction: column;
-    .photo-grid-col {
-      margin-bottom: em(20);
-    }
-    .photo-grid-img  {
-      width: em(200);
-      height: em(200);
-      margin: auto;
-      margin-bottom: em(10);
-    }
-  }
-}  
-
-
-@media screen and (max-width: 480px) {
-  .cover-div-spacer {
-    padding-top: 30%;
-
-    .cover-div-spacer-title {
-      font-size: em(40);
-      margin-bottom: em(20);
-    }
-  }
-
-
-  .main-photo-box-window{
-    flex: 0 0 auto;
-  }
-
-  .trip-box .trip-box-content {
-    display: none;
-  }
-
-  .header-main h1 {
-    margin-left: em(10);
-    line-height: 60px;
-    font-size: 20px;
-
-    .header-options {
-      right: 0;
-      font-size: 14px;
-      a {
-        margin-right: em(16);
-      }
-    }
-  }
-}
-
-
-
-
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 667px) 
-    and (-webkit-device-pixel-ratio : 2) { 
-      #seantrek-app {
-        min-height: initial;
-        height: 667px;
-      }
-      .cover-container {
-        height: 667px;       
-      }
-      .cover-fixed-div {
-        height: 667px;
-      }
-    }
-
-
-
-
 // D3 stuff
 
 .date-plate-rect {
@@ -505,3 +405,7 @@ footer {
   fill: #fff;
   width: 20px;
 }
+
+// get media queries
+@import './_responsive.scss';
+@import './_mobile-devices.scss';

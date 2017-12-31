@@ -1,0 +1,18 @@
+// for mobile device specific fixes
+
+// iphone 8
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2) { 
+      #seantrek-app {
+        min-height: initial;
+        height: 667px;
+      }
+      .cover-container {
+        height: 667px;       
+      }
+      .cover-fixed-div {
+        height: 667px;
+      }
+    }
