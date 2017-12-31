@@ -25,6 +25,7 @@ body, html {
     width: 100%;
     margin: auto;
     margin-top: 100px;
+    padding: 0 em(20);
   }
 }
 
@@ -84,7 +85,7 @@ h1 {
 
 .hide {
   
-  top: -100px;
+  top: -300px;
   &.header-main { 
 
     .header-options {
@@ -262,6 +263,15 @@ h1 {
   margin-bottom: em(10);
 }
 
+.page-h2 {
+  color: #000;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  font-size: 18px;
+  // magin: 0 em(-20);
+}
+
 .page-main {
   margin: 0 em(10);
   h2 {
@@ -279,6 +289,16 @@ h1 {
     margin: auto;
     margin-top: em(50);
     max-width: em(700);
+  }
+}
+
+.page-trek{
+  .trek-date {
+    // text-align: right;
+    // display: inline-block;
+    text-align: center;
+    margin: em(20) 0;
+    font-family: Actor, Arial, Helvetica, sans-serif;
   }
 }
 
@@ -318,6 +338,11 @@ h1 {
       overflow: hidden;
       visibility: hidden;
 
+      .photo-grid-img-over-caption {
+        font-size: em(14);
+        margin-top: em(10);
+      }
+
     }
     &:hover {
       .photo-grid-img-over {
@@ -325,6 +350,7 @@ h1 {
       }
     }
   }
+ 
 }
 
 .page-photo {

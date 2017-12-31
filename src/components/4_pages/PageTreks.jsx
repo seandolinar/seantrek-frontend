@@ -40,7 +40,7 @@ class PageTreks extends React.Component {
         }
 
         return <div className="page-main">
-            <h2 className="page-main-h2">The Treks</h2>
+            <h2 className="page-h2">The Treks</h2>
             <ul className="page-main-trips">{listTrips}</ul>
             <div id="d3-trek-timeline"></div>
         </div>

@@ -5,7 +5,7 @@ import MainParallax from './1_molecules/MainParallax'
 
 import PageMain from './4_pages/PageMain'
 import PageTreks from './4_pages/PageTreks'
-import PageTrip from './4_pages/PageTrip'
+import PageTrek from './4_pages/PageTrek'
 import PageState from './4_pages/PageState'
 import PageStateAll from './4_pages/PageStateAll'
 import PagePresident from './4_pages/PagePresident'
@@ -43,7 +43,7 @@ class App extends React.Component {
                         <Route exact path="/" component={PageMain}/>
                         <Route path="/about" component={PageAbout}/>
                         <Route exact path="/treks" component={PageTreks}/>
-                        <Route path="/treks/:trip_name" component={PageTrip}/>
+                        <Route path="/treks/:trip_name" component={PageTrek}/>
                         <Route exact path="/states" component={PageStateAll}/>
                         <Route path="/states/:state_name" component={PageState}/>
                         <Route path="/president/:president_number" component={PagePresident}/>

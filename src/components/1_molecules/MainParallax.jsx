@@ -8,8 +8,10 @@ class MainPhotoBox extends React.Component {
 
         // const windowWidth = 2000 // window.innerWidth
         const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
+        const fadeLimit = window.innerWidth < 900 ? 200 : 400
 
-        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1}
+
+        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1, fadeLimit}
 
         // this.handleScroll = this.handleScroll.bind(this)
         this.handleResize = this.handleResize.bind(this)
@@ -17,8 +19,9 @@ class MainPhotoBox extends React.Component {
 
     componentWillMount () {
         // possible jittery safari solution...will need to test this, because it might not be doing anything
+        // using debounce stuff from https://stackoverflow.com/questions/25335829/parallax-scrolling-jumpy-in-safari-ios
         let requesting = false
-  
+
         let killRequesting = _.debounce(function () {
             requesting = false
         }, 100)
@@ -37,7 +40,7 @@ class MainPhotoBox extends React.Component {
             let fade = 1
 
             if (window.scrollY > 100) {
-                fade = Math.max((300 - window.scrollY), 0) / 200
+                fade = Math.max((this.state.fadeLimit - window.scrollY), 0) / 200
             }
 
             this.setState({ transform, fade, transformValue: window.scrollY })
