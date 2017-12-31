@@ -36,7 +36,7 @@ class MainPhotoBox extends React.Component {
         }
 
         let parallax = () => {
-            const scrollNew = window.scrollY / 2
+            const scrollNew = window.scrollY / 1.1
             const transform = 'translate3d(0,' + scrollNew + 'px,0)'
             let fade = 1
 
@@ -62,7 +62,7 @@ class MainPhotoBox extends React.Component {
 
     handleScroll2 () {
         window.requestAnimationFrame(() => {
-            const scrollNew = window.scrollY / 2
+            const scrollNew = window.scrollY / 1
             const transform = 'translate3d(0,' + scrollNew + 'px,0)'
             let fade = 1
 
