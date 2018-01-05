@@ -27,7 +27,7 @@ class Footer extends React.Component {
     // }
 
     render () {
-        return <footer>#SeanTrek</footer>
+        return <footer><div class="footer-container">&#169; 2018 Sean Dolinar</div></footer>
     }
 }
 

@@ -19,13 +19,63 @@ body, html {
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   .seantrek-page {
+    padding-bottom: em(100);
+    background-color: #fff;
+
+    & > div {
+      max-width: 1000px;
+      width: 100%;
+      margin: auto;
+      margin-top: 100px;
+      padding: 0 em(20);
+
+      &.seantrek-page-about {
+        padding: 0;
+        max-width: initial;
+      }
+    }
+  }
+}
+
+.seantrek-page-about {
+  h2 {
+    margin-bottom: em(10);
+  }
+  & .about-p {
     max-width: 900px;
     width: 100%;
     margin: auto;
-    margin-top: 100px;
+    // margin-top: 100px;
     padding: 0 em(20);
+    line-height: 1.5;
+  }
+
+  .about-img-header {
+      max-width: initial;
+      width: 100%;
+      height: em(400);
+      background-position-y: 42%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // position: fixed;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      h3 {
+        font-size: 30px;
+        color: #fff;
+      }
+      .about-img-header-bkgd {
+        width: 100%;
+        background-color: rgba(0,0,0,.6);
+        text-align: center;
+        line-height: 2.5;
+      }
   }
 }
 
@@ -47,7 +97,7 @@ h1 {
 }
 
 .header-main {
-  background-color: #ace;
+  background-color:  #8dbad8;
   // padding: 20px;
   position: fixed;
   width: 100%;
@@ -141,8 +191,9 @@ h1 {
 
 .main-photo-box-window {
   overflow: hidden;
-  flex: 0 0 300px;
+  flex: 0 0 250px;
   position: relative;
+  margin: auto;
 
   .main-photo-box-control {
     display: inline-block;
@@ -190,10 +241,10 @@ h1 {
 .photo-box-img {
   display: block;
   float: left;
-  width: em(300);
+  width: em(250);
   background-size: cover;
   background-position: 50%;
-  height: em(400);
+  height: em(333);
 
   img {
     width: 100%;
@@ -213,15 +264,24 @@ h1 {
     }
   }
   .header-trip {
-    margin-bottom: em(20);
+    // margin-bottom: em(20);
+    .header-text {
+      font-family: 'Permanent Marker';
+      text-align: left;
+      width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: em(10);
+    }
   }
 
   &:after {
-    display: block;
-    width: 80%;
-    content: '';
-    border: 1px solid #eee;
-    margin: em(20) auto;
+    // display: block;
+    // width: 80%;
+    // content: '';
+    // border: 1px solid #eee;
+    // margin: em(20) auto;
   }
   &:last-child:after {
     display: none;
@@ -230,7 +290,7 @@ h1 {
 
 .cover-container {
   height: 100vh;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .cover-fixed-div {
@@ -251,6 +311,7 @@ h1 {
   will-change: transform;
 }
 
+// cover parallax text
 .cover-div-spacer {
   padding-top: 150px;
 }
@@ -262,6 +323,39 @@ h1 {
   text-align: center; 
   margin-bottom: em(10);
 }
+
+.parallax-container {
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+.parallax-fixed-div {
+  overflow: hidden;
+  // height: 100%;
+  height: 400px;
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  // top: 50px;
+  will-change: top;
+  z-index: -1;
+}
+.parallax-img {
+  position: relative;
+  // bottom: 600px;
+  width: 100%;
+  will-change: transform;
+  // bottom: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+
+.parallax-img {
+  // bottom: 100%;
+}
+
+
 
 .page-h2 {
   color: #000;
@@ -288,7 +382,29 @@ h1 {
   .page-main-trips {
     margin: auto;
     margin-top: em(50);
-    max-width: em(700);
+    // max-width: em(700);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+
+    li {
+      width: 33.33333%;
+      margin-bottom: 40px;
+      min-width: 320px;
+    }
+  }
+
+  .trip-box-card {
+    display: inline-block;
+    text-align: center;
+    padding: 20px 20px 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+
+    &:hover {
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+    }
   }
 }
 
@@ -377,14 +493,24 @@ h1 {
 
 footer {
   // height: em(100);
-  background-color: #ace;
-  margin-top: em(100);
+  background-color: #8dbad8;// #0C2C52; love this color, but not here
   text-align: right;
-  padding: em(100) em(20) em(10) 0;
+  padding: em(100) em(20) em(20) 0;
   position: relative;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
+  z-index: -10;
+
+  .footer-container {
+    position: fixed;
+    bottom: em(20);
+    right: em(20);
+    z-index: -1;
+    text-align: right;
+    width: 100%;
+    // background-image: url('//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_03.JPG')
+  }
 }
 
 // D3 stuff

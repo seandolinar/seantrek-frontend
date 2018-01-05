@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import TextBoxIntro from '../0_atoms/TextBoxIntro'
+// import TextBoxIntro from '../0_atoms/TextBoxIntro'
 
-class MainPhotoBox extends React.Component {
+class BoxParallax extends React.Component {
     constructor (props) {
         super(props)
 
         // const windowWidth = 2000 // window.innerWidth
-        const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
+        const windowLeftAdjust = -Math.max((1000 - window.innerWidth) / 2, 0)
         const fadeLimit = window.innerWidth < 900 ? 200 : 400
 
-        const coverPhoto = ['seantrek_cover.jpg', 'seantrek_cover_02.jpg', 'seantrek_cover_03.jpg'][Math.floor(Math.random() * 3)]
+        this.state = {bottom: 500, initialY: 0, transformValue: 0, windowLeftAdjust, imgHeight: 0, fade: 1, fadeLimit, height: 300}
 
-        this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1, fadeLimit, coverPhoto}
-
-        // this.handleScroll = this.handleScroll.bind(this)
         this.handleResize = this.handleResize.bind(this)
     }
 
@@ -36,7 +33,7 @@ class MainPhotoBox extends React.Component {
         }
 
         let parallax = () => {
-            const scrollNew = window.scrollY / 1.1
+            const scrollNew = window.scrollY / 2 // set this for the relative scroll speed
             const transform = 'translate3d(0,' + scrollNew + 'px,0)'
             let fade = 1
 
@@ -44,7 +41,7 @@ class MainPhotoBox extends React.Component {
                 fade = Math.max((this.state.fadeLimit - window.scrollY), 0) / 200
             }
 
-            this.setState({ transform, fade, transformValue: window.scrollY })
+            this.setState({ transform, fade, transformValue: window.scrollY }) // , transformValue: window.scrollY
             if (requesting) {
                 requestAnimationFrame(parallax)
             }
@@ -54,52 +51,50 @@ class MainPhotoBox extends React.Component {
         window.addEventListener('scroll', onScroll, false)
     }
 
-    handleResize () {
-        // const windowWidth = 2000 // window.innerWidth
-        const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
-        this.setState({windowLeftAdjust})
+    componentDidMount () {
+        this.setState({initialY: this.parallaxContainer.offsetTop, imgHeight: this.parallaxImg.offsetHeight})
     }
 
-    handleScroll2 () {
-        window.requestAnimationFrame(() => {
-            const scrollNew = window.scrollY / 1
-            const transform = 'translate3d(0,' + scrollNew + 'px,0)'
-            let fade = 1
-
-            if (window.scrollY > 100) {
-                fade = Math.max((300 - window.scrollY), 0) / 200
-            }
-
-            this.setState({ transform, fade, transformValue: window.scrollY })
-        })
+    handleResize () {
+        // const windowWidth = 2000 // window.innerWidth
+        const windowLeftAdjust = -Math.max((1000 - window.innerWidth) / 2, 0)
+        this.setState({windowLeftAdjust})
     }
 
     render () {
         return (
-            <div className="cover-container">
-                <div className="cover-fixed-div" style={{'top': -this.state.transformValue}}>
+            <div className="parallax-container" ref={(div) => { this.parallaxContainer = div }} style={{height: this.state.height}}>
+                <div className="parallax-fixed-div" style={{'top': this.state.initialY - this.state.transformValue, height: this.state.height}} >
                     <img
-                        src={'//stats.seandolinar.com/photos_seantrek/cover/' + this.state.coverPhoto}
-                        className="cover-img"
-                        style={{'bottom': 500, 'transform': this.state.transform, 'width': 2000, 'left': this.state.windowLeftAdjust} }/>
+                        src={ this.props.img }
+                        className="parallax-img"
+                        style={ 
+                            {
+                                'transform': this.state.transform,
+                                // 'left': this.state.windowLeftAdjust, 
+                                'backgroundImage': 'url(' + this.props.img + ')'
+                                // 'bottom': this.state.height / 3
+                                // 'height': this.state.height
+                            }
+                        }
+                        ref={(img) => { this.parallaxImg = img }} />
+                    {/* </div> */}
                 </div>
-                <div className="cover-text-box-intro" style={{'top': 300}}>
-
-                </div>
-                <div id="cover-div-spacer" className="cover-div-spacer" style={{'height': 700, 'opacity': this.state.fade}}>
+                {/* <div className="cover-text-box-intro" style={{'top': 300}}></div> */}
+                {/* <div id="cover-div-spacer" className="cover-div-spacer" style={{'height': 700, 'opacity': this.state.fade}}>
                     <div className="cover-div-spacer-title">#SeanTrek</div>
                     <TextBoxIntro>
                         I have traveled all around the US and a few places in Canada. 
                         It's always interesting to find stuff in your own country that's different from what you are use to.
                     </TextBoxIntro>
-                </div>
+                </div> */}
             </div>
         )
     }
 }
 
-MainPhotoBox.PropTypes = {
+BoxParallax.PropTypes = {
     photos: PropTypes.array
 }
 
-export default MainPhotoBox
+export default BoxParallax

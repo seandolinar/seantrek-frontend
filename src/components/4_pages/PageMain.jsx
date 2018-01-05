@@ -47,7 +47,6 @@ class PageMain extends React.Component {
             photoBox = <PhotoGrid data={photoData}/ >
         }
 
-
         return <div className="page-main">
             <h2 className="page-main-h2">The Treks</h2>
             <ul className="page-main-trips">{listTrips}</ul>

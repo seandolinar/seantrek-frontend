@@ -32,12 +32,22 @@ class MainPhotoBox extends React.Component {
     }
 
     render () {
-        console.log(this.props)
-        let images = this.props.photos.map((d, i) => <div className="photo-box-img" key={i} style={{'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')'}}></div>)
-        let photoWidth = 300
+        const width = 250
+
+        let images = this.props.photos.slice(0, 1).map((d, i) => <div
+            className="photo-box-img"
+            key={i}
+            style={
+                {
+                    'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')',
+                    'width': width,
+                    'height': width // 400/300 * width
+                }
+            }></div>)
+        let photoWidth = width
         let wideWidth = images.length * photoWidth
 
-        let posX = this.state.i * -300
+        let posX = this.state.i * -width
         let photoId;
 
         if (this.props.photos[this.state.i]) {
@@ -48,15 +58,23 @@ class MainPhotoBox extends React.Component {
             return <Redirect to={'/photos/' + photoId} push={true} />
         }
 
+        // return (
+        //     <div className="main-photo-box-window" style={{'width': photoWidth, 'flexBasis': width}}>
+        //         <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + posX + 'px,0)'}}>
+        //             {images}
+        //         </div>
+        //         <div className="main-photo-box-control b" onClick={this.handlesBack}>{'<'}</div>
+        //         <div className="main-photo-box-control f" onClick={this.handlesAdvance}>{'>'}</div>
+        //         <div className="main-photo-box-control u" onClick={this.handlesLoad}>{'^'}</div>
+
+        //     </div>
+        // )
+
         return (
-            <div className="main-photo-box-window" style={{'width': photoWidth}}>
+            <div className="main-photo-box-window" style={{'width': photoWidth, 'flexBasis': width}}>
                 <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + posX + 'px,0)'}}>
                     {images}
                 </div>
-                <div className="main-photo-box-control b" onClick={this.handlesBack}>{'<'}</div>
-                <div className="main-photo-box-control f" onClick={this.handlesAdvance}>{'>'}</div>
-                <div className="main-photo-box-control u" onClick={this.handlesLoad}>{'^'}</div>
-
             </div>
         )
     }
