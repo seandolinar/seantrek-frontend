@@ -58,7 +58,6 @@ body, html {
   }
 }
 
-
 .box-static-img-header {
   max-width: initial;
   width: 100%;
@@ -88,8 +87,6 @@ body, html {
   }
 }
 
-
-
 a {
   color: inherit;
   cursor: pointer;
@@ -113,6 +110,8 @@ h1 {
   width: 100%;
   z-index: 10;
   transition: top 300ms ease-out;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+
   h1 {
     font-size: 24px;
     line-height: 70px;
@@ -387,73 +386,7 @@ h1 {
   // magin: 0 em(-20);
 }
 
-#seantrek-app {
-  .seantrek-page {
-  background-color: #efefef;
-    
-    .page-main {
-      margin: 0;
-      padding: 0;
-      max-width: initial;
-      h2 {
-        
-      }
-      .page-main-h2 {
-        color: #000;
-        padding-bottom: 10px;
-        // border-bottom: 1px solid #ccc;
-        width: 100%;
-        font-size: 18px;
-        // magin: 0 em(-20);
-        max-width: $main-max-width;
-        margin: auto;
-      }
-      .page-main-trips {
-        margin-top: em(50);
-        padding: em(75) 0;
-        
-        ul {
-          margin: auto;
-          // max-width: em(700);
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          justify-content: space-evenly;
-          max-width: $main-max-width;
-          margin: auto;
 
-          li {
-            width: 33.33333%;
-            margin-bottom: 40px;
-            min-width: 320px;
-          }
-        }
-      }
-      .photo-grid {
-        max-width: $main-max-width;
-        margin: auto;
-      }
-      &-map {
-        background-color: #888;
-      }
-  }
-}
-
-
-
-  .trip-box-card {
-    display: inline-block;
-    text-align: center;
-    padding: 20px 20px 15px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-
-    &:hover {
-      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
-    }
-  }
-}
 
 .page-trek{
 
@@ -494,7 +427,7 @@ h1 {
 
 #d3-container {
   position: relative;
-  // width: 75%;
+  width: 75%;
   // height: 500px;
   margin: auto;
 
@@ -515,7 +448,16 @@ h1 {
     display: flex;
     flex-direction: column;
   }
-  
+  .photo-grid-border {
+    padding: 10px;
+    background-color: #fff;
+    margin: 5px 0;
+    @include box-shadow-low;
+
+    &:hover {
+      @include box-shadow-med;
+    }
+  }
   .photo-grid-img {
     height: em(200);
     width: em(200);
@@ -605,6 +547,10 @@ footer {
   fill: #fff;
   width: 20px;
 }
+
+// get page style sheets
+@import './stylePageMain.scss';
+
 
 // get media queries
 @import './_responsive.scss';

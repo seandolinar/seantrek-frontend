@@ -1,3 +1,23 @@
+// sets border box for entire project
+html, body {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  background: 0;
+  border: 0;
+  &:focus {
+    outline: 0;
+  }
+}
+
 // does site wide styling baseline
 
 ul, h1, h2, h3, h4, h5, h6 {
@@ -11,11 +31,3 @@ a {
   text-decoration: none;
 }
 
-// sets border box for entire project
-html, body {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}

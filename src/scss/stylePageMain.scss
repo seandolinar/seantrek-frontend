@@ -1,0 +1,147 @@
+@import './common.scss';
+
+#seantrek-app {
+    .seantrek-page {
+    background-color: #efefef;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+
+      .page-main {
+        margin: 0;
+        padding: 0;
+        max-width: initial;
+        
+        .page-main-h2 {
+          color: #000;
+          padding-bottom: 10px;
+          width: 100%;
+          font-size: 18px;
+          max-width: $main-max-width;
+          margin: auto;
+        }
+        .page-main-trips {
+          margin-top: em(50);
+          padding: em(75) 0;
+          text-align: center;
+  
+          ul {
+            margin: auto;
+            // max-width: em(700);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            justify-content: space-evenly;
+            max-width: $main-max-width;
+            margin: auto;
+  
+            li {
+              width: 33.33333%;
+              margin-bottom: 40px;
+              min-width: 320px;
+            }
+          }
+        }
+        .photo-grid {
+          max-width: $main-max-width;
+          margin: auto;
+        }
+        &-map {
+          display: flex;
+          background-color: #777;
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  
+          .page-main-h2 {
+            color: #fff;
+            padding-top: em(20);
+            padding-bottom: 0;
+          }
+        }
+    }
+  }
+  
+  
+  
+    .trip-box-card {
+        display: inline-block;
+        text-align: center;
+        padding: 20px 20px 15px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+        // transition: 100ms box-shadow;
+        @include box-shadow-low;
+
+        &:hover {
+            @include box-shadow-med;
+        }
+    }
+
+
+    button {
+        position: relative;
+        border: 2px solid #8dbad8;
+        background-color: #8dbad8;
+        padding: 10px 25px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+        transition: 100ms box-shadow;
+        overflow: hidden;
+
+      
+        &:hover {
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+        }
+
+        &:active {
+            // background-color: #9ecbe9;
+        }
+    }
+
+    .button-push-animation {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,0.3);
+        box-shadow: 0 0 10px 0 rgba(255,255,255,0.5), 0 0 10px 0 rgba(255,255,255,0.08);
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transform: scale(.2);
+
+        &.active {
+            animation: 500ms push-ripple forwards ease-out;
+        }
+    }
+}
+
+.map-box-key {
+    width: em(80);
+    &-item {
+        display: flex;
+        margin-bottom: em(5);
+    }
+    span {
+        display: inline-block;
+        height: em(25);
+        width: em(25);
+    }
+    &-item-val {
+        display: inline-block;
+        line-height: em(25);
+        color: #fff;
+        text-align: center;
+        width: em(30);
+    }
+}
+
+
+@keyframes push-ripple {
+    // almost like the material design ripple, but simpler
+    // won't get seen much
+    0% {opacity: 0;}
+    10% {opacity: .5;}
+    50% {opacity: 1;}
+    100% {opacity: 0; transform: scale(5);}
+}
