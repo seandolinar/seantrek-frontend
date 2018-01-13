@@ -5,7 +5,8 @@ import React from 'react'
 // import { fetchPresident } from '../../redux/actions/thunks'
 // import { connect } from 'react-redux'
 
-import BoxParallax from '../1_molecules/BoxParallax'
+// import BoxParallax from '../1_molecules/BoxParallax'
+import BoxStatic from '../1_molecules/BoxStatic'
 
 class PageAbout extends React.Component {
     componentWillMount () {
@@ -32,12 +33,7 @@ class PageAbout extends React.Component {
                         to the Pacific and back.
                     </p>
                 </div>
-                <div className="about-img-header" style={ {"backgroundImage": "url(\"//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG\")"} } >
-                    <div className="about-img-header-bkgd">
-                        <h3>The Hashtag</h3>
-                    </div>
-                </div>
-                {/* <BoxParallax img="//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG" /> */}
+                <BoxStatic url="//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG" text="The Hashtag"/>
                 <div className="about-p">
                     <p>
                         During the first day of driving, somewhere in Ohio with all the time I had alone in the car, I came up with the hashtag #SeanTrek. It combined one of my 

@@ -32,9 +32,13 @@ body, html {
       margin-top: 100px;
       padding: 0 em(20);
 
-      &.seantrek-page-about {
+      &.seantrek-page-about,
+      &.page-trek {
         padding: 0;
         max-width: initial;
+      }
+      &.page-trek {
+        margin-top: 70px;
       }
     }
   }
@@ -52,32 +56,38 @@ body, html {
     padding: 0 em(20);
     line-height: 1.5;
   }
+}
 
-  .about-img-header {
-      max-width: initial;
-      width: 100%;
-      height: em(400);
-      background-position-y: 42%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      // position: fixed;
 
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+.box-static-img-header {
+  max-width: initial;
+  width: 100%;
+  background-position-y: 42%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
-      h3 {
-        font-size: 30px;
-        color: #fff;
-      }
-      .about-img-header-bkgd {
-        width: 100%;
-        background-color: rgba(0,0,0,.6);
-        text-align: center;
-        line-height: 2.5;
-      }
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  h3 {
+    font-size: 36px;
+    color: #fff;
+    padding-bottom: 40px;
+  }
+  .box-static-img-header-bkgd {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%,
+       rgba(0, 0, 0, 0) 50%, 
+       rgba(0,0,0,.2) 75%,
+       rgba(0, 0, 0, 0.6) 100%);
+    text-align: center;
+    line-height: 3.5;
+    height: 100%;
   }
 }
+
 
 
 a {
@@ -184,9 +194,6 @@ h1 {
 .main-photo-box {
   display: block;
   position: relative;
-  // img {
-  //   max-width: em(300);
-  // }
 }
 
 .main-photo-box-window {
@@ -245,6 +252,16 @@ h1 {
   background-size: cover;
   background-position: 50%;
   height: em(333);
+  transition-property: filter;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition-delay: initial;
+  
+  filter: invert(.9) blur(7px);
+
+  &.developed {
+    filter: invert(0) blur(0);
+  }
 
   img {
     width: 100%;
@@ -277,11 +294,6 @@ h1 {
   }
 
   &:after {
-    // display: block;
-    // width: 80%;
-    // content: '';
-    // border: 1px solid #eee;
-    // margin: em(20) auto;
   }
   &:last-child:after {
     display: none;
@@ -321,7 +333,16 @@ h1 {
   font-size: 80px;
   font-family: 'Actor'; 
   text-align: center; 
-  margin-bottom: em(10);
+  margin-bottom: em(15);
+}
+
+.cover-div-sub-title {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  span {
+    margin: 0 15px;
+  }
 }
 
 .parallax-container {
@@ -360,46 +381,72 @@ h1 {
 .page-h2 {
   color: #000;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  // border-bottom: 1px solid #ccc;
   width: 100%;
   font-size: 18px;
   // magin: 0 em(-20);
 }
 
-.page-main {
-  margin: 0 em(10);
-  h2 {
+#seantrek-app {
+  .seantrek-page {
+  background-color: #efefef;
     
-  }
-  .page-main-h2 {
-    color: #000;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    font-size: 18px;
-    // magin: 0 em(-20);
-  }
-  .page-main-trips {
-    margin: auto;
-    margin-top: em(50);
-    // max-width: em(700);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-evenly;
+    .page-main {
+      margin: 0;
+      padding: 0;
+      max-width: initial;
+      h2 {
+        
+      }
+      .page-main-h2 {
+        color: #000;
+        padding-bottom: 10px;
+        // border-bottom: 1px solid #ccc;
+        width: 100%;
+        font-size: 18px;
+        // magin: 0 em(-20);
+        max-width: $main-max-width;
+        margin: auto;
+      }
+      .page-main-trips {
+        margin-top: em(50);
+        padding: em(75) 0;
+        
+        ul {
+          margin: auto;
+          // max-width: em(700);
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          justify-content: space-evenly;
+          max-width: $main-max-width;
+          margin: auto;
 
-    li {
-      width: 33.33333%;
-      margin-bottom: 40px;
-      min-width: 320px;
-    }
+          li {
+            width: 33.33333%;
+            margin-bottom: 40px;
+            min-width: 320px;
+          }
+        }
+      }
+      .photo-grid {
+        max-width: $main-max-width;
+        margin: auto;
+      }
+      &-map {
+        background-color: #888;
+      }
   }
+}
+
+
 
   .trip-box-card {
     display: inline-block;
     text-align: center;
     padding: 20px 20px 15px;
     border: 1px solid #ccc;
+    background-color: #fff;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 
     &:hover {
@@ -409,19 +456,46 @@ h1 {
 }
 
 .page-trek{
+
+  h2 {
+    font-size: em(26);
+  }
+
   .trek-date {
-    // text-align: right;
-    // display: inline-block;
     text-align: center;
-    margin: em(20) 0;
+    // margin: em(20) 0;
     font-family: Actor, Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    
+    span {
+      background: radial-gradient(ellipse at bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,.01) 70%, transparent 90%);
+      padding: 50px 60px 10px;
+      display: inline-block;
+      max-width: 100%;
+    }
+  }
+  &-link-back {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    color: #fff;
+  }
+
+  &-body {
+    max-width: $main-max-width;
+    margin: auto;
+    padding: 0 em(20);
+    margin-top: 50px;
   }
 }
 
 #d3-container {
   position: relative;
-  width: 75%;
-  height: 500px;
+  // width: 75%;
+  // height: 500px;
   margin: auto;
 
   path {

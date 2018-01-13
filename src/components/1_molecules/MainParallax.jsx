@@ -36,7 +36,7 @@ class MainPhotoBox extends React.Component {
         }
 
         let parallax = () => {
-            const scrollNew = window.scrollY / 1.1
+            const scrollNew = window.scrollY / 1.2
             const transform = 'translate3d(0,' + scrollNew + 'px,0)'
             let fade = 1
 
@@ -88,10 +88,7 @@ class MainPhotoBox extends React.Component {
                 </div>
                 <div id="cover-div-spacer" className="cover-div-spacer" style={{'height': 700, 'opacity': this.state.fade}}>
                     <div className="cover-div-spacer-title">#SeanTrek</div>
-                    <TextBoxIntro>
-                        I have traveled all around the US and a few places in Canada. 
-                        It's always interesting to find stuff in your own country that's different from what you are use to.
-                    </TextBoxIntro>
+                    <div className="cover-div-sub-title"><span>Travel</span>|<span>Food</span>|<span>History</span></div>
                 </div>
             </div>
         )

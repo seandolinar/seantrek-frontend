@@ -26,9 +26,13 @@ class PhotoGrid extends React.Component {
                 <div className="photo-grid-img-over" onMouseEnter={this.handleHover}>{f.trip_label}<div className="photo-grid-img-over-caption">{f.caption}</div></div>
             </div></Link>
             )
+            if (dataCol.length > 0) {
+                return <div key={i} className="photo-grid-col"><div className="photo-grid-col-header">{catDict[d]}</div>{dataCol}</div>
+            } else {
+                return null
+            }
+        })
 
-            return <div key={i} className="photo-grid-col"><div className="photo-grid-col-header">{catDict[d]}</div>{dataCol}</div>
-        })             
         return <div className="photo-grid">{photos}</div>
     }
 }

@@ -6,16 +6,21 @@ class MainPhotoBox extends React.Component {
     constructor (props) {
         super(props)
 
-        this.state = { redirect: false, i: 0 }
+        this.state = { redirect: false, i: 0, invert: false }
 
         this.handlesBack = this.handlesBack.bind(this)
         this.handlesAdvance = this.handlesAdvance.bind(this)
         this.handlesLoad = this.handlesLoad.bind(this)
+        this.handlesImgFilter = this.handlesImgFilter.bind(this)
     }
 
     // moveSlide (i) {
     //     this.setState({ xTra i })
     // }
+
+    componentDidMount () {
+        window.addEventListener('scroll', this.handlesImgFilter)
+    }
 
     checkArrayBoundary (i) {
         return Math.min(Math.max(i, 0), this.props.photos.length-1)
@@ -30,20 +35,29 @@ class MainPhotoBox extends React.Component {
     handlesLoad () {
         this.setState({redirect: true})
     }
+    handlesImgFilter () {
+        if (!this.state.invert) {
+            this.setState({invert: ((window.innerHeight - 500) < (window.pageYOffset || document.documentElement.scrollTop))})
+        }
+    }
 
     render () {
         const width = 250
 
         let images = this.props.photos.slice(0, 1).map((d, i) => <div
-            className="photo-box-img"
+            className={'photo-box-img' + (this.state.invert ? ' developed' : '')}
             key={i}
             style={
                 {
                     'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')',
                     'width': width,
-                    'height': width // 400/300 * width
+                    'height': width, // 400/300 * width,
+                    // 'WebkitFilter': 'invert(' + this.state.invert + ')',
+                    // 'filter': 'invert(' + this.state.invert + ')'
                 }
-            }></div>)
+            }
+            ref={(img) => { this.img = img }}
+        ></div>)
         let photoWidth = width
         let wideWidth = images.length * photoWidth
 

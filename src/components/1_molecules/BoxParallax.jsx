@@ -80,14 +80,6 @@ class BoxParallax extends React.Component {
                         ref={(img) => { this.parallaxImg = img }} />
                     {/* </div> */}
                 </div>
-                {/* <div className="cover-text-box-intro" style={{'top': 300}}></div> */}
-                {/* <div id="cover-div-spacer" className="cover-div-spacer" style={{'height': 700, 'opacity': this.state.fade}}>
-                    <div className="cover-div-spacer-title">#SeanTrek</div>
-                    <TextBoxIntro>
-                        I have traveled all around the US and a few places in Canada. 
-                        It's always interesting to find stuff in your own country that's different from what you are use to.
-                    </TextBoxIntro>
-                </div> */}
             </div>
         )
     }

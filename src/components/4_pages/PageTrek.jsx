@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import PhotoGrid from '../1_molecules/PhotoGrid'
 
 import map from '../common/map'
+// import BoxParallax from '../1_molecules/BoxParallax'
+import BoxStatic from '../1_molecules/BoxStatic'
 
 class PageTrek extends React.Component {
     componentWillMount () {
@@ -31,13 +33,13 @@ class PageTrek extends React.Component {
     render () {
         const data = _.first(this.props.entities.trip_one.data)
 
-        // const photoData = data.photos
         let photoBox
-        console.log(data)
+        let featuredPhoto
+
         if (data && data.photos) {
-            console.log(data.photos)
-            // I don't have photos in this API (yet)
             photoBox = <PhotoGrid data={data.photos} />
+            featuredPhoto = data.photos.find((d, i) => d.featured === 1)
+            console.log(featuredPhoto)
         }
 
         if (this.props.entities.trip_one.data) {
@@ -45,19 +47,20 @@ class PageTrek extends React.Component {
             let presidents = data.presidents.map((d, i) => <div key={i}><Link to={'/president/' + d.number}>{d.president_last}</Link></div>)
 
             return <div className="page-trek">
-                <h2 className="trek-label page-h2">
-                    {data.trip_label}
-                </h2>        
-                <div className="trek-date">{data.date_start_display + ' to ' + data.date_end_display}</div>
-                <div>{data.trip_desc}</div>
-                {/* <div className="trek-states">{states}</div> */}
-                {/* This is a trip. <a onClick={this.props.history.goBack}>Back</a>. <br/> */}
-                {/* The label is: {this.props.match.params.trip_name}<br/> */}
-                <div id="d3-container"></div>
-                <h3></h3>
-                {/* <PhotoGrid /> */}
-                <div className="trek-presidents">{presidents}</div>
-                {photoBox}
+                <BoxStatic url={'//stats.seandolinar.com/photos_seantrek/web_1000/' + featuredPhoto.photo_name} text={data.trip_label} height="500px">
+                    <h3>{data.trip_label}</h3>
+                    <div className="trek-date"><span>{data.date_start_display + ' to ' + data.date_end_display}</span></div>
+                </BoxStatic>
+                <div className="page-trek-main">
+                    <a onClick={this.props.history.goBack} className="page-trek-link-back">&lt; Back</a>
+
+                    <div className="page-trek-body">
+                        <div>{data.trip_desc}</div>
+                        <div id="d3-container"></div>
+                        <div className="trek-presidents">{presidents}</div>
+                        {photoBox}
+                    </div>
+                </div>
             </div>
         } else {
             return <div id="d3-container"></div>

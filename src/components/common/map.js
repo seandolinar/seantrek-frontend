@@ -23,6 +23,7 @@ let map = (history, data) => {
                 popupTemplate: function(geography, data) {
                     return '<div class="hoverinfo">' + geography.id + ' '
                 },
+                // borderColor: '#aaa',
                 highlightFillColor: '#ccc',
                 highlightBorderColor: '#eee'
             },

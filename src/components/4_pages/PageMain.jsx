@@ -3,6 +3,7 @@ import React from 'react'
 
 import TripBox from '../1_molecules/TripBox'
 import PhotoGrid from '../1_molecules/PhotoGrid'
+import BoxParallax from '../1_molecules/BoxParallax'
 
 import { fetchTripsFeatured, fetchStateCount, fetchPhotoGrid } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
@@ -11,6 +12,10 @@ import map from '../common/map'
 // import { Link, Route, Switch } from 'react-router-dom'
 
 class PageMain extends React.Component {
+    constructor (props) {
+        super(props)
+        this.computeD3Height = this.computeD3Height.bind(this)
+    }
     componentWillMount () {
         if (_.isEmpty(this.props.entities.trips_featured)) {
             this.props.fetchTripsFeatured()
@@ -19,16 +24,21 @@ class PageMain extends React.Component {
         this.props.fetchPhotoGrid()
     }
     componentDidMount () {
-        this.map = map(this.props.history, {})      
+        const width = this.textInput.offsetWidth
+        this.textInput.style.width = Math.min(700, width) + 'px'
+        this.textInput.style.height = (Math.min(700, width) / 700 * 500) + 'px'
+        this.map = map(this.props.history, {})
     }
     componentDidUpdate () {
-        if (document.getElementById('d3-container').childElementCount == 0) {
-            // map(this.props.history, this.props.entities.state_count.data)
-        }
-        // if (document.getElementById('d3-container').childElementCount)
-        // map(this.props.history, this.props.entities.state_count.data)
         this.map.updateChoropleth(this.props.entities.state_count.data)
     }
+
+    computeD3Height () {
+        //const width = this.textInput.offsetWidth //document.getElementById('d3-container').offsetWidth
+        // console.log(document.getElementById('d3-container').innerWidth)
+        return 700 / 700 * 500
+    }
+
     render () {
         let data = this.props.entities.trips_featured.data
         let listTrips = ''
@@ -48,10 +58,16 @@ class PageMain extends React.Component {
         }
 
         return <div className="page-main">
-            <h2 className="page-main-h2">The Treks</h2>
-            <ul className="page-main-trips">{listTrips}</ul>
-            <h2 className="page-main-h2">The States (and Provinces)</h2>
-            <div id="d3-container"></div>
+            <div className="page-main-trips">
+                <h2 className="page-main-h2">The Treks</h2>
+                <ul>
+                    {listTrips}
+                </ul>
+            </div>
+            <div className="page-main-map">
+                <h2 className="page-main-h2">The States (and Provinces)</h2>
+                <div id="d3-container" ref={(input) => { this.textInput = input }}></div>
+            </div>
             <h2 className="page-main-h2">The Sites</h2>
             <ul className="page-main-photo-box">{photoBox}</ul>
         </div>
