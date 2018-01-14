@@ -30,6 +30,7 @@ class PageMain extends React.Component {
         const width = this.textInput.offsetWidth
         this.textInput.style.width = Math.min(700, width) + 'px'
         this.textInput.style.height = (Math.min(700, width) / 700 * 450) + 'px'
+        this.textInput.style.flex = '0 1 ' + Math.min(700, width) + 'px'
         this.map = map(this.props.history, {})
     }
     componentDidUpdate () {

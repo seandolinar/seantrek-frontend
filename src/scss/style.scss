@@ -429,7 +429,7 @@ h1 {
   position: relative;
   width: 75%;
   // height: 500px;
-  margin: auto;
+  // margin: auto;
 
   path {
     cursor: pointer;
@@ -449,7 +449,8 @@ h1 {
     flex-direction: column;
   }
   .photo-grid-border {
-    padding: 10px;
+    // padding: 10px;
+    border: 10px solid #fff;
     background-color: #fff;
     margin: 5px 0;
     @include box-shadow-low;

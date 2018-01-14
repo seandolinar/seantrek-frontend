@@ -46,6 +46,7 @@
         }
         &-map {
           display: flex;
+          justify-content: center;
           background-color: #777;
           box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
   
@@ -118,6 +119,10 @@
 
 .map-box-key {
     width: em(80);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &-item {
         display: flex;
         margin-bottom: em(5);

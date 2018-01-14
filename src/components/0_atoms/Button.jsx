@@ -14,7 +14,7 @@ class Button extends React.Component {
     }
 
     render () {
-        return <Link to={'this.props.to'}><button onMouseDown={this.handleClick}><span>{this.props.children}</span><span className={ 'button-push-animation' + (this.state.active ? ' active' : '') }></span></button></Link>
+        return <Link to={this.props.to}><button onMouseDown={this.handleClick}><span>{this.props.children}</span><span className={ 'button-push-animation' + (this.state.active ? ' active' : '') }></span></button></Link>
     }
 }
 
