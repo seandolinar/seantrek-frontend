@@ -31,11 +31,11 @@ class Header extends React.Component {
             (this.state.sticky ? 'sticky' : '') +
             (!this.state.show ? ' hide' : ' show')
         }>
-            <h1 className="header-text">
+            <nav className="header-text">
                 <Link to={this.props.href}>
                     {this.props.title}
                 </Link>
-                <nav className="header-options">
+                <div className="header-options">
                     <NavLink to="/treks" activeClassName="active">
                         Treks
                     </NavLink>
@@ -48,8 +48,8 @@ class Header extends React.Component {
                     <NavLink to="/about" activeClassName="active">
                         About
                     </NavLink>
-                </nav>
-            </h1>
+                </div>
+            </nav>
         </header>
     }
 }

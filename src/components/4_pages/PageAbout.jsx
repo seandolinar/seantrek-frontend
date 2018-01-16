@@ -33,25 +33,28 @@ class PageAbout extends React.Component {
                         to the Pacific and back.
                     </p>
                 </div>
-                <BoxStatic url="//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG" text="The Hashtag"/>
-                <div className="about-p">
-                    <p>
-                        During the first day of driving, somewhere in Ohio with all the time I had alone in the car, I came up with the hashtag #SeanTrek. It combined one of my 
-                        favorite Sci-Fi franchises with my name. I thought it conveyed the scope and spirit of the trip I was just starting -- one that spanned a continent and was 
-                        full of exploration.
-                    </p>
-                    <p>
-                        On the trip I challenged myself to log the trip on social media creating a detail record using data exhaust from the apps on my iPhone. I also wanted my friends
-                        to be able to follow along as I went around the country. In 2012, Instagram was just starting to take off, so people weren't exhausted from social media lifestyle
-                        posts. It was also four years before the 2016 election, so Twitter still had a lot of non-political content on it. The second part of the challenge would be to 
-                        photograph the trip using on my iPhone 4S. This certainly had its limitations, but the iPhone's camera produced some really gorgeous landscape photos with enough fiddling.
-                    </p>
-                    <h3>This Site</h3>
-                    <p>
-                        It's been five years since the first #SeanTrek, and I've taken many smaller trips since in the same spirit. The idea being to explore the US (and Canada)
-                        in the particular way I like to travel.
-                    </p>
-                </div>
+                <BoxStatic url="//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG">
+                    <span className="box-static-about-text">The Hashtag</span>
+                    <div className="about-p">
+                        <p>
+                            During the first day of driving, somewhere in Ohio with all the time I had alone in the car, I came up with the hashtag #SeanTrek. It combined one of my 
+                            favorite Sci-Fi franchises with my name. I thought it conveyed the scope and spirit of the trip I was just starting -- one that spanned a continent and was 
+                            full of exploration.
+                        </p>
+                        <p>
+                            On the trip I challenged myself to log the trip on social media creating a detail record using data exhaust from the apps on my iPhone. I also wanted my friends
+                            to be able to follow along as I went around the country. In 2012, Instagram was just starting to take off, so people weren't exhausted from social media lifestyle
+                            posts. It was also four years before the 2016 election, so Twitter still had a lot of non-political content on it. The second part of the challenge would be to 
+                            photograph the trip using on my iPhone 4S. This certainly had its limitations, but the iPhone's camera produced some really gorgeous landscape photos with enough fiddling.
+                        </p>
+                        {/* <h3>This Site</h3>
+                        <p>
+                            It's been five years since the first #SeanTrek, and I've taken many smaller trips since in the same spirit. The idea being to explore the US (and Canada)
+                            in the particular way I like to travel.
+                        </p> */}
+                    </div>
+                </BoxStatic>
+                
             </div>
         )
     }

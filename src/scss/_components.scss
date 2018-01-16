@@ -26,14 +26,14 @@ button {
 
 .header-main {
     background-color:  #8dbad8;
-    // padding: 20px;
+    font-family: Actor, Arial, Helvetica, sans-serif;
     position: fixed;
     width: 100%;
     z-index: 10;
     transition: top 300ms ease-out;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
   
-    h1 {
+    .header-text {
       font-size: 24px;
       line-height: 70px;
       margin-left: em(20);

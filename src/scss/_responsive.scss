@@ -1,4 +1,7 @@
+@import './common.scss';
+
 // general responsive design
+
 
 // goes from 3 to 2 columns of trek poloroids
 @media screen and (max-width: 1080px) {
@@ -22,6 +25,9 @@
             }
         }
       }
+    }
+    .page-trek-body {
+      @include body-width-1040;
     }
 }
 
