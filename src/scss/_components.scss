@@ -1,0 +1,128 @@
+// <Button>
+button {
+    position: relative;
+    border: 2px solid #8dbad8;
+    background-color: #8dbad8;
+    padding: 10px 25px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    transition: 100ms box-shadow;
+    overflow: hidden;
+
+  
+    &:hover {
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+    }
+
+    &:active {
+        // background-color: #9ecbe9;
+    }
+}
+
+
+// <Header>
+
+.header-main {
+    background-color:  #8dbad8;
+    // padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    transition: top 300ms ease-out;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+  
+    h1 {
+      font-size: 24px;
+      line-height: 70px;
+      margin-left: em(20);
+      max-width: $main-max-width;
+  
+  
+      .header-options {
+        position: fixed;
+        font-size: 16px;
+        top: 0;
+        right: 20px;
+        transition: color 200ms;
+  
+        a {
+          margin-right: em(20);
+          &:hover, &.active {
+            border-bottom: 3px solid #000;
+            transition: border 150ms ease-in-out;
+          }
+        }
+      }
+    }
+  }
+  
+  .sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+  }
+  
+  .hide {
+    
+    top: -300px;
+    &.header-main { 
+  
+      .header-options {
+        color: #fff;
+  
+        a {
+          &:hover, &.active {
+            border-bottom: 3px solid #fff;
+            transition: border 150ms ease-in-out;
+          }
+        }
+      }
+    }
+  }
+  
+  .show {
+    top: 0;
+  }
+
+
+  // <TripBox>
+
+.trip-box {
+    .trip-box-content {
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+
+        .main-trip-desc {
+        // margin-left: 20px;
+        margin-right: 80px;
+        }
+    }
+    .header-trip {
+        // margin-bottom: em(20);
+        .header-text {
+        font-family: 'Permanent Marker';
+        text-align: left;
+        width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-top: em(10);
+        }
+    }
+
+    &:after {
+    }
+    &:last-child:after {
+        display: none;
+    }
+}
+
+
+.map-box {
+    display: flex;
+    justify-content: center;
+}

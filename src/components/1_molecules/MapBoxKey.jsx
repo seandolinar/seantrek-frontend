@@ -36,8 +36,7 @@ class MapBoxKey extends React.Component {
             <div className="map-box-key-item-val">{d.val}</div>
         </div>)
 
-
-        return <div className="map-box-key"><div className="map-box-key-item-val" style={{'text-align': 'right'}}>visits</div>{key}</div>
+        return <div className="map-box-key"><div className="map-box-key-item-val" style={{'textAlign': 'right'}}>visits</div>{key}</div>
     }
 }
 
@@ -46,10 +45,3 @@ class MapBoxKey extends React.Component {
 // }
 
 export default MapBoxKey
-
-// ONE: '#eaeff4',
-//                 TWO: '#c1d1e0',
-//                 THREE: '#99b2cc',
-//                 FOUR: '#7093b7',
-//                 FIVE: '#4775a3',
-//                 SIX: '#2d5b89',

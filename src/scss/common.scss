@@ -36,6 +36,12 @@ $font-stack: 'Rubik', 'Arial', sans-serif;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
 }
 
+@mixin body-width {
+    max-width: em(1000);
+    margin-left: em(20);
+    margin-right: em(20);
+}
+
 
 // em converter function
 // https://css-tricks.com/snippets/sass/px-to-em-functions/

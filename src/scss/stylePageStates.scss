@@ -1,0 +1,27 @@
+@import './common.scss';
+
+#seantrek-app {
+  .seantrek-page {
+  background-color: #efefef;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); // centralize this
+
+  .page-states {
+
+      padding: 0;
+      margin-top: 70px;
+
+      &-body-map {
+        background-color: #777;
+        @include box-shadow-low;
+      }
+
+      &-body {
+      //   max-width: $main-max-width;
+        margin: auto;
+        padding: 0 em(20);
+        margin-top: 50px;
+        @include body-width;
+      }
+    }
+  }
+}

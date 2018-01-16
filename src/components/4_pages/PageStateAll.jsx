@@ -6,6 +6,7 @@ import { fetchPhotoGrid, fetchStateCount } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 
 import map from '../common/map'
+import MapBox from '../1_molecules/MapBox'
 
 class PageStateAll extends React.Component {
     componentWillMount () {
@@ -14,7 +15,7 @@ class PageStateAll extends React.Component {
     }
 
     componentDidMount () {
-        this.map = map(this.props.history, {})
+        // this.map = map(this.props.history, {})
     }
     componentDidUpdate () {
         if (document.getElementById('d3-container').childElementCount === 0) {
@@ -22,12 +23,14 @@ class PageStateAll extends React.Component {
         }
         // if (document.getElementById('d3-container').childElementCount)
         // map(this.props.history, this.props.entities.state_count.data)
-        this.map.updateChoropleth(this.props.entities.state_count.data)
+        // this.map.updateChoropleth(this.props.entities.state_count.data)
     }
     render () {
-        return <div>
-            <h1></h1>
-            <div id="d3-container"></div>
+        return <div className="page-states">
+            <div className="page-states-body-map">
+                <h1></h1>
+                <MapBox data={this.props.entities.state_count.data} showKey={true}/>
+            </div>
         </div>
     }
 }

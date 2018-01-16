@@ -1,0 +1,64 @@
+@import './common.scss';
+
+#seantrek-app {
+    .seantrek-page {
+    background-color: #efefef;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); // centralize this
+
+    .page-trek{
+
+        h2 {
+          font-size: em(26);
+        }
+      
+        .trek-date {
+          text-align: center;
+          // margin: em(20) 0;
+          font-family: Actor, Arial, Helvetica, sans-serif;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          color: #fff;
+          
+          span {
+            background: radial-gradient(ellipse at bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,.01) 70%, transparent 90%);
+            padding: 50px 60px 10px;
+            display: inline-block;
+            max-width: 100%;
+          }
+        }
+        &-link-back {
+          position: absolute;
+          top: 80px;
+          left: 10px;
+          color: #fff;
+        }
+      
+        &-body {
+        //   max-width: $main-max-width;
+          margin: auto;
+          padding: 0 em(20);
+          margin-top: 50px;
+          @include body-width;
+
+
+          &-desc {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: em(30);
+
+            @include box-shadow-low;
+            margin-bottom: em(50);
+          }
+
+          &-map {
+              background-color: #777;
+              @include box-shadow-low;
+          }
+        }
+      }
+
+
+    }
+}

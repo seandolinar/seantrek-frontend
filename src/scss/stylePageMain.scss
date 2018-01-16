@@ -17,6 +17,9 @@
           font-size: 18px;
           max-width: $main-max-width;
           margin: auto;
+          text-align: left;
+          margin-bottom: 20px;
+          font-size: 22px;
         }
         .page-main-trips {
           margin-top: em(50);
@@ -29,7 +32,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            justify-content: space-evenly;
+            justify-content: space-between;
             max-width: $main-max-width;
             margin: auto;
   
@@ -37,6 +40,14 @@
               width: 33.33333%;
               margin-bottom: 40px;
               min-width: 320px;
+
+                // helps aligns the 2x3 rows   
+              &:first-child, &:nth-child(4) {
+                  text-align: left;
+              }
+              &:last-child, &:nth-child(3) {
+                  text-align: right;
+              }
             }
           }
         }
@@ -44,18 +55,18 @@
           max-width: $main-max-width;
           margin: auto;
         }
-        &-map {
-          display: flex;
-          justify-content: center;
-          background-color: #777;
-          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-  
-          .page-main-h2 {
-            color: #fff;
-            padding-top: em(20);
-            padding-bottom: 0;
-          }
+        &-sub {
+            background-color: #777;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+            margin-bottom: em(50);
+
+            .page-main-h2 {
+                color: #fff;
+                padding-top: em(20);
+                padding-bottom: 0;
+              }
         }
+        
     }
   }
   
@@ -67,35 +78,10 @@
         padding: 20px 20px 15px;
         border: 1px solid #ccc;
         background-color: #fff;
-        // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-        // transition: 100ms box-shadow;
         @include box-shadow-low;
 
         &:hover {
             @include box-shadow-med;
-        }
-    }
-
-
-    button {
-        position: relative;
-        border: 2px solid #8dbad8;
-        background-color: #8dbad8;
-        padding: 10px 25px;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-        transition: 100ms box-shadow;
-        overflow: hidden;
-
-      
-        &:hover {
-            box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
-        }
-
-        &:active {
-            // background-color: #9ecbe9;
         }
     }
 

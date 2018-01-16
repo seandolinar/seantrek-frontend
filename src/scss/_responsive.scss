@@ -1,5 +1,32 @@
 // general responsive design
 
+// goes from 3 to 2 columns of trek poloroids
+@media screen and (max-width: 1080px) {
+  #seantrek-app .seantrek-page 
+    .page-main {
+      .page-main-h2 {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+      .page-main-trips 
+      {
+        ul li {
+          width: 50%;
+  
+              // helps aligns the single rows 
+              &:first-child, &:nth-child(4) {
+                text-align: center;
+            }
+            &:last-child, &:nth-child(3) {
+                text-align: center;
+            }
+        }
+      }
+    }
+}
+
+
+// adjusts photo grid
 @media screen and (max-width: 900px) {
 
     .cover-div-spacer-title {
@@ -13,67 +40,116 @@
         width: em(150);
         height: em(150);
       }
+    } 
+}
+
+// goes from 2 to 1 column of trek poloroids
+@media screen and (max-width: 750px) {
+  #seantrek-app .seantrek-page 
+  .page-main {
+    .page-main-h2 {
+      // margin-left: 40px;
+      // margin-right: 40px;
     }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .photo-grid {
-      justify-content: space-around;
-      
-      .photo-grid-img  {
-        width: em(125);
-        height: em(125);
-      }
-    }
-  }  
-  
-  @media screen and (max-width: 525px) {
-    .photo-grid {
-      flex-direction: column;
-      .photo-grid-col {
-        margin-bottom: em(20);
-      }
-      .photo-grid-img  {
-        width: em(200);
-        height: em(200);
-        margin: auto;
-        margin-bottom: em(10);
-      }
-    }
-  }  
-  
-  
-  @media screen and (max-width: 480px) {
-    .cover-div-spacer {
-      padding-top: 30%;
-  
-      .cover-div-spacer-title {
-        font-size: em(40);
-        margin-bottom: em(20);
-      }
-    }
-  
-  
-    .main-photo-box-window{
-      flex: 0 0 auto;
-    }
-  
-    .trip-box .trip-box-content {
-      // display: none;
-    }
-  
-    .header-main h1 {
-      margin-left: em(10);
-      line-height: 60px;
-      font-size: 20px;
-  
-      .header-options {
-        right: 0;
-        font-size: 14px;
-        a {
-          margin-right: em(16);
-        }
+    .page-main-trips 
+    {
+      ul li {
+        width: 100%;
       }
     }
   }
+}
+
+// adjust photo grid
+@media screen and (max-width: 640px) {
+  .photo-grid {
+    justify-content: space-around;
+    
+    .photo-grid-img  {
+      width: em(125);
+      height: em(125);
+    }
+  }
+}  
+
+// adjust photo grid
+@media screen and (max-width: 525px) {
+  .photo-grid {
+    flex-direction: column;
+    .photo-grid-col {
+      margin-bottom: em(20);
+    }
+    .photo-grid-img  {
+      width: em(200);
+      height: em(200);
+      margin: auto;
+      margin-bottom: em(10);
+    }
+  }
+
+  .photo-grid {
+    .photo-grid-col {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      &-header {
+        width: 100%;
+      }
+      a {
+        width: 50%;
+      }
+      a:last-child {
+        display: none;
+      }
+    }
+    .photo-grid-img {
+      // width: 50%;
+    }
+  }
+}  
+
+
+// adjust photo gride and cover photo
+@media screen and (max-width: 480px) {
+  .cover-div-spacer {
+    padding-top: 30%;
+
+    .cover-div-spacer-title {
+      font-size: em(40);
+      margin-bottom: em(20);
+    }
+  }
+
+  .main-photo-box-window{
+    flex: 0 0 auto;
+  }
+
+  .photo-grid {
+    .photo-grid-col {
+      .photo-grid-img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+
+  .trip-box .trip-box-content {
+    // display: none;
+  }
+
+  .header-main h1 {
+    margin-left: em(10);
+    line-height: 60px;
+    font-size: 20px;
+
+    .header-options {
+      right: 0;
+      font-size: 14px;
+      a {
+        margin-right: em(16);
+      }
+    }
+  }
+}
   

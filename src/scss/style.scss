@@ -38,25 +38,13 @@ body, html {
         max-width: initial;
       }
       &.page-trek {
-        margin-top: 70px;
+        margin-top: 60px;
       }
     }
   }
 }
 
-.seantrek-page-about {
-  h2 {
-    margin-bottom: em(10);
-  }
-  & .about-p {
-    max-width: 900px;
-    width: 100%;
-    margin: auto;
-    // margin-top: 100px;
-    padding: 0 em(20);
-    line-height: 1.5;
-  }
-}
+
 
 .box-static-img-header {
   max-width: initial;
@@ -103,92 +91,31 @@ h1 {
   font-size: em(40);
 }
 
-.header-main {
-  background-color:  #8dbad8;
-  // padding: 20px;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  transition: top 300ms ease-out;
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
-
-  h1 {
-    font-size: 24px;
-    line-height: 70px;
-    margin-left: em(20);
-
-    .header-options {
-      position: fixed;
-      font-size: 16px;
-      top: 0;
-      right: 20px;
-      transition: color 200ms;
-
-      a {
-        margin-right: em(20);
-        &:hover, &.active {
-          border-bottom: 3px solid #000;
-          transition: border 150ms ease-in-out;
-        }
-      }
-    }
-  }
-}
-
-.sticky {
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  top: 0;
-}
-
-.hide {
+// .text-box-intro {
+//   // padding: em(50) 0;
+//   margin: em(20) auto;
+//   text-align: left;
+//   width: 80%;
+//   max-width: em(400);
+//   background-color: rgba(255,255,255,.7);
   
-  top: -300px;
-  &.header-main { 
+//   .text-box-intro-copy {
+//     padding: em(30);
+//   }
 
-    .header-options {
-      color: #fff;
-
-      a {
-        &:hover, &.active {
-          border-bottom: 3px solid #fff;
-          transition: border 150ms ease-in-out;
-        }
-      }
-    }
-  }
-}
-
-.show {
-  top: 0;
-}
-
-.text-box-intro {
-  // padding: em(50) 0;
-  margin: em(20) auto;
-  text-align: left;
-  width: 80%;
-  max-width: em(400);
-  background-color: rgba(255,255,255,.7);
-  
-  .text-box-intro-copy {
-    padding: em(30);
-  }
-
-  &:before, &:after {
-    content: '';
-    display: block;
-    margin: auto;
-    padding: em(10) 0;
-    width: 100%;
-    border-top: 1px solid #888;    
-  }
-  &:after {
-    border-top: 0;
-    border-bottom: 1px solid #888;    
-  }
-}
+//   &:before, &:after {
+//     content: '';
+//     display: block;
+//     margin: auto;
+//     padding: em(10) 0;
+//     width: 100%;
+//     border-top: 1px solid #888;    
+//   }
+//   &:after {
+//     border-top: 0;
+//     border-bottom: 1px solid #888;    
+//   }
+// }
 
 .main-photo-box {
   display: block;
@@ -267,37 +194,7 @@ h1 {
   }
 }
 
-.trip-box {
 
-  .trip-box-content {
-    display: flex;
-    // align-items: center;
-    justify-content: space-between;
-
-    .main-trip-desc {
-      // margin-left: 20px;
-      margin-right: 80px;
-    }
-  }
-  .header-trip {
-    // margin-bottom: em(20);
-    .header-text {
-      font-family: 'Permanent Marker';
-      text-align: left;
-      width: 250px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      margin-top: em(10);
-    }
-  }
-
-  &:after {
-  }
-  &:last-child:after {
-    display: none;
-  }
-}
 
 .cover-container {
   height: 100vh;
@@ -388,42 +285,7 @@ h1 {
 
 
 
-.page-trek{
 
-  h2 {
-    font-size: em(26);
-  }
-
-  .trek-date {
-    text-align: center;
-    // margin: em(20) 0;
-    font-family: Actor, Arial, Helvetica, sans-serif;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #fff;
-    
-    span {
-      background: radial-gradient(ellipse at bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,.01) 70%, transparent 90%);
-      padding: 50px 60px 10px;
-      display: inline-block;
-      max-width: 100%;
-    }
-  }
-  &-link-back {
-    position: absolute;
-    top: 80px;
-    left: 10px;
-    color: #fff;
-  }
-
-  &-body {
-    max-width: $main-max-width;
-    margin: auto;
-    padding: 0 em(20);
-    margin-top: 50px;
-  }
-}
 
 #d3-container {
   position: relative;
@@ -530,6 +392,10 @@ footer {
   }
 }
 
+.page-main-sub-map {
+  background-color: #777;
+}
+
 // D3 stuff
 
 .date-plate-rect {
@@ -549,8 +415,14 @@ footer {
   width: 20px;
 }
 
+// get components;
+@import './_components.scss';
+
 // get page style sheets
 @import './stylePageMain.scss';
+@import './stylePageTrek.scss';
+@import './stylePageStates.scss';
+@import './stylePageAbout.scss';
 
 
 // get media queries
