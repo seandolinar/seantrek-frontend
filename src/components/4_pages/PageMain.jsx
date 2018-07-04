@@ -10,15 +10,13 @@ import Button from '../0_atoms/Button'
 import { fetchTripsFeatured, fetchStateCount, fetchPhotoGrid } from '../../redux/actions/thunks'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import map from '../common/map'
 
-// import { Link, Route, Switch } from 'react-router-dom'
 
 class PageMain extends React.Component {
     // constructor (props) {
     //     super(props)
-    //     // this.computeD3Height = this.computeD3Height.bind(this)
     // }
+
     componentWillMount () {
         if (_.isEmpty(this.props.entities.trips_featured)) {
             this.props.fetchTripsFeatured()

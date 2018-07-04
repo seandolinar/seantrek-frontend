@@ -32,7 +32,7 @@ class App extends React.Component {
                         return <Header headerLimit={vh} show={false} />
                     }}/>
                     <Route path="*" render={() => {
-                        return <Header />        
+                        return <Header />
                     }}/>
                 </Switch>
                 <Switch>

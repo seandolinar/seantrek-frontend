@@ -12,7 +12,7 @@ const appConfig = require('./config/config')
 
 const config = {
     output: {
-        path    : path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/'
     },
@@ -87,6 +87,7 @@ if (NodeUtils.isProduction()) {
         'webpack/hot/only-dev-server',
         './src/Bootstrap'
     ]
+    // config.entry = './src/Bootstrap'
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin()
     )

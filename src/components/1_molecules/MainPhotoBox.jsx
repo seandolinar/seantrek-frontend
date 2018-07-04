@@ -42,31 +42,36 @@ class MainPhotoBox extends React.Component {
     }
 
     render () {
-        const width = 250
+        // const width = 250
 
-        let images = this.props.photos.slice(0, 1).map((d, i) => <div
-            className={'photo-box-img' + (this.state.invert ? ' developed' : '')}
-            key={i}
-            style={
-                {
-                    'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')',
-                    'width': width,
-                    'height': width, // 400/300 * width,
-                    // 'WebkitFilter': 'invert(' + this.state.invert + ')',
-                    // 'filter': 'invert(' + this.state.invert + ')'
+        let images = <div className={'photo-box-img photo-box-blank'}></div>
+
+        if (this.props.photos.length > 0) {
+            images = this.props.photos.slice(0, 1).map((d, i) => <div
+                className={'photo-box-img' + (this.state.invert ? ' developed' : '')}
+                key={i}
+                style={
+                    {
+                        'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')' // ,
+                        // 'width': width,
+                        // 'height': width, // 400/300 * width,
+                        // 'WebkitFilter': 'invert(' + this.state.invert + ')',
+                        // 'filter': 'invert(' + this.state.invert + ')'
+                    }
                 }
-            }
-            ref={(img) => { this.img = img }}
-        ></div>)
-        let photoWidth = width
-        let wideWidth = images.length * photoWidth
-
-        let posX = this.state.i * -width
-        let photoId;
-
-        if (this.props.photos[this.state.i]) {
-            photoId = this.props.photos[this.state.i].photo_id 
+                ref={(img) => { this.img = img }}
+            ></div>)
         }
+
+        // let photoWidth = width
+        // let wideWidth = images.length * photoWidth
+
+        // let posX = this.state.i * -width
+        // let photoId;
+
+        // if (this.props.photos[this.state.i]) {
+        //     photoId = this.props.photos[this.state.i].photo_id 
+        // }
 
         if (this.state.redirect) {
             return <Redirect to={'/photos/' + photoId} push={true} />
@@ -77,16 +82,12 @@ class MainPhotoBox extends React.Component {
         //         <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + posX + 'px,0)'}}>
         //             {images}
         //         </div>
-        //         <div className="main-photo-box-control b" onClick={this.handlesBack}>{'<'}</div>
-        //         <div className="main-photo-box-control f" onClick={this.handlesAdvance}>{'>'}</div>
-        //         <div className="main-photo-box-control u" onClick={this.handlesLoad}>{'^'}</div>
-
         //     </div>
         // )
 
         return (
-            <div className="main-photo-box-window" style={{'width': photoWidth, 'flexBasis': width}}>
-                <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + posX + 'px,0)'}}>
+            <div className="main-photo-box-window">
+                <div className="main-photo-box-wide">
                     {images}
                 </div>
             </div>

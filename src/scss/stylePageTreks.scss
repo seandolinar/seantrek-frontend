@@ -1,0 +1,62 @@
+.page-main-treks {
+    margin-top: em(50);
+    padding: em(75) 0;
+    text-align: center;
+
+    margin: auto;
+    // max-width: em(700);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+    max-width: $main-max-width;
+    margin: auto;
+
+    li {
+        // width: 50%;
+        flex: 1 0 50%;
+        // margin-bottom: 40px;
+        min-width: 320px;
+
+        &.trek-header-year {
+            width: 100%;
+            padding: 20px 0;
+            margin: 5px;
+            background-color: rgb(71, 117, 163);
+            color: #fff;
+        }
+
+
+        &.trip-box {
+            padding: 5px;
+            margin-bottom: 0;
+
+            .header-trip .header-text {
+                width: initial;
+            }
+        }
+        .trip-box-card {
+            width: 100%;
+
+            .main-photo-box-window {
+                flex: 1 0 auto;
+
+                .photo-box-img {
+                    width: 100%;
+                }
+            }
+        }
+
+        
+        
+
+        //     // helps aligns the 2x3 rows   
+        // &:first-child, &:nth-child(4) {
+        //     text-align: left;
+        // }
+        // &:last-child, &:nth-child(3) {
+        //     text-align: right;
+        // }
+    }
+  }
+

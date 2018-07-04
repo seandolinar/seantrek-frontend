@@ -1,19 +1,41 @@
-.seantrek-page-about {
-    margin-top: em(90);
-    h2 {
-      margin-bottom: em(10);
-    }
-    & .about-p {
-      max-width: 900px;
-      width: 100%;
-      margin: auto;
-      // margin-top: 100px;
-      padding: 0 em(20);
-      line-height: 1.5;
-    }
+@import './common.scss';
 
-    .box-static-about-text {
-        color: #fff;
-        font-size: 24px;
+#seantrek-app {
+    .seantrek-page {
+        // padding-bottom: 0;
+        .seantrek-page-about {
+            max-width: $main-max-width;
+            margin: auto;
+            margin-top: em(80);
+
+           
+
+            h2 {
+                margin-bottom: em(10);
+            }
+           
+            p {
+                margin: 0;
+                padding: em(10) 0;
+                line-height: 1.5;
+            }
+
+            // h2, h3, p {
+            //     @include body-width;
+            // }
+
+            @media (max-width: $main-max-width) {
+                margin: em(30);
+                margin-top: em(80);
+            }
+
+
+        }
+
+        .box-static-about-text {
+            color: #fff;
+            font-size: 24px;
+        }
+
     }
-  }
+}

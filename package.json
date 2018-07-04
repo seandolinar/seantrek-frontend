@@ -52,7 +52,7 @@
     "coveralls": "^3.0.0",
     "css-loader": "^0.28.7",
     "d3": "^3.5.17",
-    "datamaps": "^0.5.8 ",    
+    "datamaps": "^0.5.8 ",
     "del": "^3.0.0",
     "eslint": "^4.8.0",
     "eslint-config-standard": "^10.2.1",

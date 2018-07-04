@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import TextBoxIntro from '../0_atoms/TextBoxIntro'
 
 class MainPhotoBox extends React.Component {
     constructor (props) {
@@ -10,7 +9,7 @@ class MainPhotoBox extends React.Component {
         const windowLeftAdjust = -Math.max((2000 - window.innerWidth) / 2, 0)
         const fadeLimit = window.innerWidth < 900 ? 200 : 400
 
-        const coverPhoto = ['seantrek_cover.jpg', 'seantrek_cover_02.jpg', 'seantrek_cover_03.jpg'][Math.floor(Math.random() * 3)]
+        const coverPhoto = ['seantrek_cover.jpg', 'seantrek_cover_02.jpg', 'seantrek_cover_03.jpg', 'seantrek_cover_04.jpg'][Math.floor(Math.random() * 4)]
 
         this.state = {bottom: 500, transformValue: 0, windowLeftAdjust, fade: 1, fadeLimit, coverPhoto}
 
@@ -79,7 +78,8 @@ class MainPhotoBox extends React.Component {
             <div className="cover-container">
                 <div className="cover-fixed-div" style={{'top': -this.state.transformValue}}>
                     <img
-                        src={'//stats.seandolinar.com/photos_seantrek/cover/' + this.state.coverPhoto}
+                        // src={'//stats.seandolinar.com/photos_seantrek/cover/' + this.state.coverPhoto}
+                        src={'http://localhost:8000/photos_seantrek/cover/' + this.state.coverPhoto}
                         className="cover-img"
                         style={{'bottom': 500, 'transform': this.state.transform, 'width': 2000, 'left': this.state.windowLeftAdjust} }/>
                 </div>

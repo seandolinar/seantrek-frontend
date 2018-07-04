@@ -10,11 +10,23 @@ class Button extends React.Component {
     }
 
     handleClick () {
+        this.props.onClick && this.props.onClick()
         this.setState({active: true})
     }
 
     render () {
-        return <Link to={this.props.to}><button onMouseDown={this.handleClick}><span>{this.props.children}</span><span className={ 'button-push-animation' + (this.state.active ? ' active' : '') }></span></button></Link>
+        const button = <button onMouseDown={this.handleClick}>
+            <span>{this.props.children}</span>
+            <span className={ 'button-push-animation' + (this.state.active ? ' active' : '') }></span>
+        </button>
+
+        if (this.props.to) {
+            return <Link to={this.props.to}>
+                {button}
+            </Link>
+        } else {
+            return button
+        }
     }
 }
 

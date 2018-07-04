@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import PhotoGrid from '../1_molecules/PhotoGrid'
 import MapBox from '../1_molecules/MapBox'
 
+import Button from '../0_atoms/Button'
+
 import map from '../common/map'
 // import BoxParallax from '../1_molecules/BoxParallax'
 import BoxStatic from '../1_molecules/BoxStatic'
@@ -52,7 +54,10 @@ class PageTrek extends React.Component {
 
             let presidents = data.presidents.map((d, i) => <div key={i}><Link to={'/president/' + d.number}>{d.president_last}</Link></div>)
 
+            console.log(this.props.history.goBack)
+
             return <div className="page-trek">
+                <Button onClick={this.props.history.goBack}>Back</Button>
                 <BoxStatic url={'//stats.seandolinar.com/photos_seantrek/web_1000/' + featuredPhoto.photo_name} text={data.trip_label} height="500px">
                     <h3>{data.trip_label}</h3>
                     <div className="trek-date"><span>{data.date_start_display + ' to ' + data.date_end_display}</span></div>
@@ -63,7 +68,6 @@ class PageTrek extends React.Component {
                             {data.trip_desc}
                         </div>
                     </div>
-                    <a onClick={this.props.history.goBack} className="page-trek-link-back">&lt; Back</a>
                     <div className="page-trek-body-map">
                         <MapBox data={newData}/>
                     </div>

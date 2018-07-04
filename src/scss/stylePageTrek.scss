@@ -6,11 +6,36 @@
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 -2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); // centralize this
 
     .page-trek{
+        position: relative;
 
         h2 {
           font-size: em(26);
         }
       
+        button {
+            position: absolute;
+            top: 30px;
+            left: 10px;
+            z-index: 1;
+            // border-radius: 50%;
+
+
+            // background-color: initial;
+            // border: none;
+            // box-shadow: none;
+
+            // transition: 200ms background-color;
+
+
+            // &:hover {
+            //     // background-color: lightsalmon;
+            //     border: 2px solid #8dbad8;
+            //     background-color: #8dbad8;
+            //     color: #fff;
+            //     @include box-shadow-low;
+            // }
+        }
+
         .trek-date {
           text-align: center;
           // margin: em(20) 0;

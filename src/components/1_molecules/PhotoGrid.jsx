@@ -23,7 +23,7 @@ class PhotoGrid extends React.Component {
                 return e.photo_type === d
             }).map((f, k) => <Link key={k} to={'/photos/' + f.photo_id} className=""><div className="photo-grid-img photo-grid-border"
                 style={{'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + f.photo_name + '\')'}}>
-                <div className="photo-grid-img-over" onMouseEnter={this.handleHover}>{f.trip_label}<div className="photo-grid-img-over-caption">{f.caption}</div></div>
+                <div className="photo-grid-img-over" onMouseEnter={this.handleHover}>{f.title}<div className="photo-grid-img-over-caption">{f.caption}</div></div>
             </div></Link>
             )
             if (dataCol.length > 0) {
