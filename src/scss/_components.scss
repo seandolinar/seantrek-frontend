@@ -92,17 +92,16 @@ button {
 
 .trip-box {
     .trip-box-content {
-        display: flex;
-        // align-items: center;
-        justify-content: space-between;
+        height: 250px;
+        width: 250px;
+        position: relative;
+        overflow: hidden;
 
         .main-trip-desc {
-        // margin-left: 20px;
-        margin-right: 80px;
+          margin-right: 80px;
         }
     }
     .header-trip {
-        // margin-bottom: em(20);
         .header-text {
         font-family: 'Permanent Marker';
         text-align: left;

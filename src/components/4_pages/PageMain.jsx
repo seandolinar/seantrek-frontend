@@ -11,6 +11,8 @@ import { fetchTripsFeatured, fetchStateCount, fetchPhotoGrid } from '../../redux
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { shuffle } from 'lodash'
+
 
 class PageMain extends React.Component {
     // constructor (props) {
@@ -30,7 +32,7 @@ class PageMain extends React.Component {
         let listTrips = ''
 
         if (data) {
-            listTrips = data.map((d, i) => {
+            listTrips = _.shuffle(data).slice(0, 6).map((d, i) => {
                 return (
                     <TripBox key={i} data={d} />
                 )

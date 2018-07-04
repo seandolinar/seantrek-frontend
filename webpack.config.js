@@ -80,14 +80,15 @@ if (NodeUtils.isProduction()) {
     config.entry = './src/Bootstrap'
     config.plugins.push(new UglifyJSPlugin())
 } else {
-    config.devtool = 'eval'
+    console.log('dev')
+    config.devtool = 'eval-source-map'
     config.entry = [
         'react-hot-loader/patch',
         `webpack-dev-server/client?http://localhost:${appConfig.example.port}`,
         'webpack/hot/only-dev-server',
         './src/Bootstrap'
     ]
-    // config.entry = './src/Bootstrap'
+
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin()
     )

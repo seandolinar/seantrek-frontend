@@ -38,6 +38,10 @@
         .trip-box-card {
             width: 100%;
 
+            .trip-box-content {
+                width: 100%;
+            }
+
             .main-photo-box-window {
                 flex: 1 0 auto;
 
@@ -46,17 +50,6 @@
                 }
             }
         }
-
-        
-        
-
-        //     // helps aligns the 2x3 rows   
-        // &:first-child, &:nth-child(4) {
-        //     text-align: left;
-        // }
-        // &:last-child, &:nth-child(3) {
-        //     text-align: right;
-        // }
     }
   }
 

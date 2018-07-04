@@ -14,10 +14,6 @@ class MainPhotoBox extends React.Component {
         this.handlesImgFilter = this.handlesImgFilter.bind(this)
     }
 
-    // moveSlide (i) {
-    //     this.setState({ xTra i })
-    // }
-
     componentDidMount () {
         window.addEventListener('scroll', this.handlesImgFilter)
     }
@@ -42,56 +38,23 @@ class MainPhotoBox extends React.Component {
     }
 
     render () {
-        // const width = 250
-
         let images = <div className={'photo-box-img photo-box-blank'}></div>
 
         if (this.props.photos.length > 0) {
-            images = this.props.photos.slice(0, 1).map((d, i) => <div
-                className={'photo-box-img' + (this.state.invert ? ' developed' : '')}
+          
+            images = this.props.photos.slice(0, 1).map((d, i) => <img
+                className={'photo-box-img'}
+                src={'//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name }
+                srcSet={'//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 500w, ' + '//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 1000w'}
                 key={i}
-                style={
-                    {
-                        'backgroundImage': 'url(\'' + '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photo_name + '\')' // ,
-                        // 'width': width,
-                        // 'height': width, // 400/300 * width,
-                        // 'WebkitFilter': 'invert(' + this.state.invert + ')',
-                        // 'filter': 'invert(' + this.state.invert + ')'
-                    }
-                }
-                ref={(img) => { this.img = img }}
-            ></div>)
+            ></img>)
         }
-
-        // let photoWidth = width
-        // let wideWidth = images.length * photoWidth
-
-        // let posX = this.state.i * -width
-        // let photoId;
-
-        // if (this.props.photos[this.state.i]) {
-        //     photoId = this.props.photos[this.state.i].photo_id 
-        // }
 
         if (this.state.redirect) {
             return <Redirect to={'/photos/' + photoId} push={true} />
         }
 
-        // return (
-        //     <div className="main-photo-box-window" style={{'width': photoWidth, 'flexBasis': width}}>
-        //         <div className="main-photo-box-wide" style={{'width': wideWidth, 'transform': 'translate(' + posX + 'px,0)'}}>
-        //             {images}
-        //         </div>
-        //     </div>
-        // )
-
-        return (
-            <div className="main-photo-box-window">
-                <div className="main-photo-box-wide">
-                    {images}
-                </div>
-            </div>
-        )
+        return images
     }
 }
 
