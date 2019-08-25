@@ -58,7 +58,7 @@ class PageTrek extends React.Component {
 
             return <div className="page-trek">
                 <Button onClick={this.props.history.goBack}>Back</Button>
-                <BoxStatic url={'//stats.seandolinar.com/photos_seantrek/web_1000/' + featuredPhoto.photo_name} text={data.trip_label} height="500px">
+                <BoxStatic url={'//analytics.seandolinar.com/photos_seantrek/web_1000/' + featuredPhoto.photo_name} text={data.trip_label} height="500px">
                     <h3>{data.trip_label}</h3>
                     <div className="trek-date"><span>{data.date_start_display + ' to ' + data.date_end_display}</span></div>
                 </BoxStatic>

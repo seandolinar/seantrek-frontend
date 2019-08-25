@@ -44,8 +44,8 @@ class MainPhotoBox extends React.Component {
           
             images = this.props.photos.slice(0, 1).map((d, i) => <img
                 className={'photo-box-img'}
-                src={'//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name }
-                srcSet={'//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 500w, ' + '//stats.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 1000w'}
+                src={'//analytics.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name }
+                srcSet={'//analytics.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 500w, ' + '//analytics.seandolinar.com/photos_seantrek/web_1000/' + d.photo_name + ' 1000w'}
                 key={i}
             ></img>)
         }

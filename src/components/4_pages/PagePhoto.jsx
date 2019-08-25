@@ -19,7 +19,7 @@ class PagePhoto extends React.Component {
             return <div className="page-photo">
                 <div className="photo-title">{data.title}</div>
                 <div className="photo-label"><Link to={'/treks/' + pageNameToRoute(data.trip_label)}>{data.trip_label}</Link></div>
-                <img src={'//stats.seandolinar.com/photos_seantrek/web_1000/' + data.photo_name}/>
+                <img src={'//analytics.seandolinar.com/photos_seantrek/web_1000/' + data.photo_name}/>
                 <div className="photo-caption">{data.caption}</div>
             </div>
         } else {

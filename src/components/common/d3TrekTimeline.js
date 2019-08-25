@@ -108,10 +108,10 @@ let build = (data) => {
                 .attr('y', (d, i) => y(dateFormat.parse(d.date_start)) + 13)
                 .attr('x', (d, i) => (-(d.index % 2) * 200) + Math.pow(-1, (d.index % 2)) * 50)
                 .attr('width', 250)
-                .attr('xlink:href', '//stats.seandolinar.com/photos_seantrek/med_500/' + 'seantrek_o_01.JPG')
+                .attr('xlink:href', '//analytics.seandolinar.com/photos_seantrek/med_500/' + 'seantrek_o_01.JPG')
                 .attr('xlink:href', (d, i) => {
                     if (d.photos.find((e) => e.featured === 1)) {
-                        return '//stats.seandolinar.com/photos_seantrek/med_500/' + d.photos.find((e) => e.featured === 1).photo_name
+                        return '//analytics.seandolinar.com/photos_seantrek/med_500/' + d.photos.find((e) => e.featured === 1).photo_name
                     }
                 })
                 .attr('opacity', 0)

@@ -78,8 +78,8 @@ class MainPhotoBox extends React.Component {
             <div className="cover-container">
                 <div className="cover-fixed-div" style={{'top': -this.state.transformValue}}>
                     <img
-                        // src={'//stats.seandolinar.com/photos_seantrek/cover/' + this.state.coverPhoto}
-                        src={'http://localhost:8000/photos_seantrek/cover/' + this.state.coverPhoto}
+                        src={'//analytics.seandolinar.com/photos_seantrek/cover/' + this.state.coverPhoto}
+                        //src={'http://localhost:8000/photos_seantrek/cover/' + this.state.coverPhoto}
                         className="cover-img"
                         style={{'bottom': 500, 'transform': this.state.transform, 'width': 2000, 'left': this.state.windowLeftAdjust} }/>
                 </div>

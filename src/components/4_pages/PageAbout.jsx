@@ -33,7 +33,7 @@ class PageAbout extends React.Component {
                         to the Pacific and back.
                     </p>
                 </div>
-                <BoxStatic url="//stats.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG">
+                <BoxStatic url="//analytics.seandolinar.com/photos_seantrek/web_1000/seantrek_o_05.JPG">
                     <span className="box-static-about-text">The Hashtag</span>
                 </BoxStatic>
                 <div className="seantrek-page-about">
