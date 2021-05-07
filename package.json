@@ -28,7 +28,7 @@
     "cross-env": "^5.0.5",
     "datamaps": "^0.5.8 ",
     "express": "^4.16.2",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "moment": "^2.19.1",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
